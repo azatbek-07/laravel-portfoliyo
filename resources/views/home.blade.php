@@ -1,229 +1,401 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Azatbek Ermalaev | Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        
+
         * {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
         }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, #1e40af, #3b82f6, #60a5fa);
+
+        /* Navy rang asosiy */
+        .bg-navy {
+            background-color: #0a192f;
+        }
+        .bg-navy-light {
+            background-color: #112240;
+        }
+        .bg-navy-lighter {
+            background-color: #1a365d;
+        }
+        .text-navy {
+            color: #0a192f;
+        }
+        .border-navy {
+            border-color: #1a365d;
+        }
+
+        /* Cyan rang accent */
+        .text-cyan {
+            color: #00d4ff;
+        }
+        .bg-cyan {
+            background-color: #00d4ff;
+        }
+        .bg-cyan-light {
+            background-color: #e6f9ff;
+        }
+        .border-cyan {
+            border-color: #00d4ff;
+        }
+        .hover-bg-cyan:hover {
+            background-color: #00d4ff;
+        }
+        .hover-text-cyan:hover {
+            color: #00d4ff;
+        }
+
+        /* Gradient cyan dan navy ga */
+        .text-gradient-cyan {
+            background: linear-gradient(135deg, #00d4ff, #0a192f);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1d4ed8 100%);
+
+        .bg-gradient-cyan-navy {
+            background: linear-gradient(135deg, #00d4ff, #0a192f);
         }
-        
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+
+        .bg-grid-cyan {
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
         }
-        
+
+        .hover-effect {
+            transition: all 0.3s ease;
+        }
+
+        .hover-effect:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0, 212, 255, 0.15);
+        }
+
         .nav-link {
             position: relative;
-            padding-bottom: 4px;
+            transition: color 0.3s ease;
         }
-        
+
         .nav-link::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -2px;
             left: 0;
             width: 0;
             height: 2px;
-            background: #60a5fa;
+            background: #00d4ff;
             transition: width 0.3s ease;
         }
-        
+
         .nav-link:hover::after,
         .nav-link.active::after {
             width: 100%;
         }
-        
-        .card {
+
+        .badge-cyan {
+            background: rgba(0, 212, 255, 0.12);
+            color: #00d4ff;
+            padding: 6px 18px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .icon-box-cyan {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .icon-box-cyan:hover {
+            background: #00d4ff;
+            color: #0a192f;
+            border-color: #00d4ff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.25);
+        }
+
+        .card-cyan {
+            background: white;
+            border: 1px solid rgba(0, 212, 255, 0.15);
             transition: all 0.3s ease;
         }
-        
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(30, 64, 175, 0.3);
+
+        .card-cyan:hover {
+            border-color: #00d4ff;
+            box-shadow: 0 12px 40px rgba(0, 212, 255, 0.08);
         }
-        
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+
+        .btn-cyan {
+            background: #00d4ff;
+            color: #0a192f;
+            transition: all 0.3s ease;
         }
-        
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+
+        .btn-cyan:hover {
+            background: #0a192f;
+            color: #00d4ff;
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.2);
         }
-        
-        .animate-left {
-            animation: slideInLeft 0.8s ease-out;
+
+        .btn-outline-cyan {
+            border: 1.5px solid #00d4ff;
+            color: #00d4ff;
+            transition: all 0.3s ease;
         }
-        
-        .animate-right {
-            animation: slideInRight 0.8s ease-out;
+
+        .btn-outline-cyan:hover {
+            background: #00d4ff;
+            color: #0a192f;
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.2);
         }
-        
-        .skill-bar {
-            transition: width 1.5s ease-in-out;
+
+        .footer-link-cyan {
+            transition: all 0.2s ease;
+        }
+
+        .footer-link-cyan:hover {
+            color: #00d4ff;
+            transform: translateX(4px);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .divider-cyan {
+            background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+            height: 1px;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a192f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00d4ff;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00b8d4;
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-slate-50 to-blue-50">
-    
+<body class="bg-white text-gray-800">
+
     <!-- Navbar -->
-    <nav class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <a href="index.html" class="flex items-center space-x-3">
-                    <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center text-white text-xl font-bold shadow-lg">
-                        AE
-                    </div>
-                    <span class="text-xl font-bold text-blue-900">Ermalaev</span>
+    <nav class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-cyan/10">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="text-2xl font-extrabold tracking-tight">
+                    <span class="text-navy">A</span><span class="text-cyan">E</span>
                 </a>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-1">
-                    <a href="index.html" class="nav-link active px-4 py-2 text-blue-600 font-medium transition-colors">Asosiy</a>
-                    <a href="about.html" class="nav-link px-4 py-2 text-gray-600 hover:text-blue-600 font-medium transition-colors">Men haqimda</a>
-                    <a href="projects.html" class="nav-link px-4 py-2 text-gray-600 hover:text-blue-600 font-medium transition-colors">Loyihalarim</a>
-                    <a href="contact.html" class="px-6 py-2.5 gradient-bg text-white rounded-lg hover:shadow-lg transition-all font-medium ml-4">
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="nav-link active text-cyan text-sm font-semibold">Asosiy</a>
+                    <a href="/about" class="nav-link text-gray-600 hover:text-cyan text-sm font-medium">Men haqimda</a>
+                    <a href="/projects" class="nav-link text-gray-600 hover:text-cyan text-sm font-medium">Loyihalar</a>
+                    <a href="/contact" class="ml-2 px-5 py-2 btn-cyan text-sm font-semibold rounded-lg">
                         Aloqa
                     </a>
                 </div>
-                
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden">
-                    <button id="menu-btn" class="text-gray-600 hover:text-blue-600 transition-colors">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
+
+                <button id="menu-btn" class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
             </div>
         </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-            <div class="px-4 py-4 space-y-2">
-                <a href="index.html" class="block px-4 py-3 text-blue-600 bg-blue-50 rounded-lg font-medium">Asosiy</a>
-                <a href="about.html" class="block px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg">Men haqimda</a>
-                <a href="projects.html" class="block px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg">Loyihalarim</a>
-                <a href="contact.html" class="block px-4 py-3 gradient-bg text-white rounded-lg text-center">Aloqa</a>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-cyan/10">
+            <div class="px-6 py-5 space-y-3">
+                <a href="/" class="block text-sm text-cyan font-semibold py-2">Asosiy</a>
+                <a href="/about" class="block text-sm text-gray-600 font-medium py-2">Men haqimda</a>
+                <a href="/projects" class="block text-sm text-gray-600 font-medium py-2">Loyihalar</a>
+                <a href="/contact" class="block text-sm text-gray-600 font-medium py-2">Aloqa</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center pt-20 bg-gradient-to-br from-white via-blue-50 to-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <!-- Left Content -->
-                <div class="space-y-8 animate-left">
+    <section class="min-h-screen flex items-center pt-16 bg-grid-cyan relative overflow-hidden">
+        <!-- Dekorativ cyan blobs -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-cyan/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-navy/5 rounded-full blur-3xl"></div>
+
+        <div class="max-w-6xl mx-auto px-6 lg:px-8 py-20 w-full relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
                     <div>
-                        <span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-6">
-                            👋 Salom!
+                        <span class="badge-cyan">
+                            <i class="fas fa-code mr-2"></i>Full Stack Developer
                         </span>
-                        <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 leading-tight mb-4">
-                            Men <span class="gradient-text">Azatbek</span>
-                        </h1>
-                        <h2 class="text-2xl md:text-3xl text-gray-600 font-light">
-                            Sun'iy intellekt va raqamli texnologiyalar
-                        </h2>
                     </div>
-                    
-                    <p class="text-lg text-gray-500 leading-relaxed">
-                        Samarqandda 2-kurs talabasi. Qoraqalpog'istonda tug'ilganman. 
-                        Zamonaviy texnologiyalar va dasturlashga qiziqaman.
+
+                    <h1 class="text-5xl lg:text-6xl font-extrabold text-navy leading-tight glow-text">
+                        Azatbek<br>
+                        <span class="text-gradient-cyan">Ermalaev</span>
+                    </h1>
+
+                    <p class="text-lg text-gray-600 leading-relaxed max-w-lg">
+                        Sun'iy intellekt va raqamli texnologiyalar fakulteti talabasi.
+                        Samarqandda 2-kursda o'qiyman. Asli Qoraqalpog'istondanman.
                     </p>
-                    
-                    <div class="flex flex-wrap gap-4">
-                        <a href="projects.html" class="px-8 py-4 gradient-bg text-white rounded-xl hover:shadow-xl transition-all transform hover:scale-105 font-semibold text-lg">
-                            <i class="fas fa-code mr-2"></i>Loyihalarim
+
+                    <div class="flex items-center space-x-4 text-sm text-gray-500">
+                        <span class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-1.5 text-cyan"></i>
+                            Samarqand, O'zbekiston
+                        </span>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <a href="/projects" class="px-6 py-3 btn-cyan text-sm font-semibold rounded-lg hover-effect">
+                            Loyihalarim
+                            <i class="fas fa-arrow-right ml-2 text-xs"></i>
                         </a>
-                        <a href="contact.html" class="px-8 py-4 border-2 border-blue-200 text-blue-600 rounded-xl hover:bg-blue-50 transition-all transform hover:scale-105 font-semibold text-lg">
-                            <i class="fas fa-paper-plane mr-2"></i>Bog'lanish
+                        <a href="/about" class="px-6 py-3 btn-outline-cyan text-sm font-semibold rounded-lg hover-effect">
+                            Men haqimda
                         </a>
                     </div>
-                    
-                    <!-- Social Links -->
-                    <div class="flex space-x-3 pt-4">
-                        <a href="https://t.me/A_z_a_t_b_e_k" target="_blank" class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110">
-                            <i class="fab fa-telegram-plane text-xl"></i>
+
+                    <div class="flex items-center space-x-4 pt-4">
+                        <a href="https://t.me/A_z_a_t_b_e_k" target="_blank" class="icon-box-cyan w-10 h-10 bg-white rounded-lg flex items-center justify-center text-gray-500">
+                            <i class="fab fa-telegram-plane text-base"></i>
                         </a>
-                        <a href="https://instagram.com/ermalaev_azatbek" target="_blank" class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110">
-                            <i class="fab fa-instagram text-xl"></i>
+                        <a href="https://instagram.com/ermalaev_azatbek" target="_blank" class="icon-box-cyan w-10 h-10 bg-white rounded-lg flex items-center justify-center text-gray-500">
+                            <i class="fab fa-instagram text-base"></i>
                         </a>
-                        <a href="https://github.com/azatbek-07" target="_blank" class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110">
-                            <i class="fab fa-github text-xl"></i>
+                        <a href="https://github.com/azatbek-07" target="_blank" class="icon-box-cyan w-10 h-10 bg-white rounded-lg flex items-center justify-center text-gray-500">
+                            <i class="fab fa-github text-base"></i>
                         </a>
                     </div>
                 </div>
-                
-                <!-- Right Image -->
-                <div class="flex justify-center animate-right">
+
+                <div class="hidden lg:block">
                     <div class="relative">
-                        <div class="w-80 h-80 md:w-96 md:h-96 gradient-bg rounded-full flex items-center justify-center shadow-2xl">
-                            <div class="text-9xl filter drop-shadow-lg">👨‍💻</div>
-                        </div>
-                        <!-- Floating cards -->
-                        <div class="absolute -top-4 -right-4 bg-white rounded-2xl p-4 shadow-xl">
-                            <div class="flex items-center space-x-2">
-                                <span class="text-2xl">🚀</span>
-                                <div>
-                                    <p class="text-sm font-bold text-gray-800">2-kurs</p>
-                                    <p class="text-xs text-gray-500">Samarqand</p>
+                        <div class="w-full h-96 bg-gradient-to-br from-cyan-50 to-navy/5 rounded-2xl border-2 border-cyan/20 flex items-center justify-center card-cyan">
+                            <div class="text-center">
+                                <div class="text-7xl font-extrabold">
+                                    <span class="text-navy">A</span><span class="text-cyan">E</span>
                                 </div>
+                                <div class="divider-cyan w-16 mx-auto my-3"></div>
+                                <p class="text-sm font-semibold text-cyan">Full Stack Developer</p>
                             </div>
                         </div>
-                        <div class="absolute -bottom-4 -left-4 bg-white rounded-2xl p-4 shadow-xl">
-                            <div class="flex items-center space-x-2">
-                                <span class="text-2xl">💡</span>
-                                <div>
-                                    <p class="text-sm font-bold text-gray-800">AI & Digital</p>
-                                    <p class="text-xs text-gray-500">Texnologiyalar</p>
-                                </div>
-                            </div>
+
+                        <!-- Dekorativ kartochkalar -->
+                        <div class="absolute -top-4 -right-4 bg-white border-2 border-cyan/20 rounded-xl px-4 py-3 shadow-lg">
+                            <p class="text-xs text-gray-500 font-medium">Talaba</p>
+                            <p class="text-lg font-extrabold text-navy">2-kurs</p>
                         </div>
+
+                        <div class="absolute -bottom-4 -left-4 bg-white border-2 border-cyan/20 rounded-xl px-4 py-3 shadow-lg">
+                            <p class="text-xs text-gray-500 font-medium">Universitet</p>
+                            <p class="text-sm font-bold text-navy">SamDU</p>
+                        </div>
+
+                        <!-- Dekorativ cyan nuqta -->
+                        <div class="absolute top-1/2 -right-6 w-3 h-3 bg-cyan rounded-full animate-pulse"></div>
+                        <div class="absolute top-1/3 -left-6 w-2 h-2 bg-navy rounded-full"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
+    <footer class="border-t border-cyan/10 bg-navy text-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8 py-16">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div>
+                    <div class="text-2xl font-extrabold mb-4">
+                        <span class="text-navy bg-white px-2 py-1 rounded">A</span>
+                        <span class="text-cyan">E</span>
+                    </div>
+                    <p class="text-sm text-gray-400 leading-relaxed max-w-xs">
+                        Full Stack dasturchi. Sun'iy intellekt va raqamli texnologiyalar yo'nalishida.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-semibold text-cyan uppercase tracking-wider mb-5">Sahifalar</h4>
+                    <ul class="space-y-3">
+                        <li><a href="/" class="footer-link-cyan text-sm text-gray-400 hover:text-cyan transition-colors">Asosiy sahifa</a></li>
+                        <li><a href="/about" class="footer-link-cyan text-sm text-gray-400 hover:text-cyan transition-colors">Men haqimda</a></li>
+                        <li><a href="/projects" class="footer-link-cyan text-sm text-gray-400 hover:text-cyan transition-colors">Loyihalarim</a></li>
+                        <li><a href="/contact" class="footer-link-cyan text-sm text-gray-400 hover:text-cyan transition-colors">Aloqa</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-semibold text-cyan uppercase tracking-wider mb-5">Bog'lanish</h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="https://t.me/A_z_a_t_b_e_k" target="_blank" class="footer-link-cyan flex items-center space-x-2 text-sm text-gray-400 hover:text-cyan transition-colors">
+                                <i class="fab fa-telegram-plane text-cyan text-base"></i>
+                                <span>@A_z_a_t_b_e_k</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://instagram.com/ermalaev_azatbek" target="_blank" class="footer-link-cyan flex items-center space-x-2 text-sm text-gray-400 hover:text-cyan transition-colors">
+                                <i class="fab fa-instagram text-cyan text-base"></i>
+                                <span>ermalaev_azatbek</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/azatbek-07" target="_blank" class="footer-link-cyan flex items-center space-x-2 text-sm text-gray-400 hover:text-cyan transition-colors">
+                                <i class="fab fa-github text-gray-400 text-base"></i>
+                                <span>azatbek-07</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-cyan/10 flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
+                <p class="text-xs text-gray-500">© 2024 Azatbek Ermalaev</p>
+                <div class="flex items-center space-x-6 text-xs text-gray-500">
+                    <a href="/about" class="footer-link-cyan hover:text-cyan transition-colors">Men haqimda</a>
+                    <a href="/projects" class="footer-link-cyan hover:text-cyan transition-colors">Loyihalar</a>
+                    <a href="/contact" class="footer-link-cyan hover:text-cyan transition-colors">Aloqa</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script>
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        
+
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
         });
     </script>
 </body>
