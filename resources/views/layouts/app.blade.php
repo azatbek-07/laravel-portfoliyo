@@ -7,7 +7,7 @@
     <title>Azatbek Ermalaev | Portfolio</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     @if (file_exists(public_path('hot')) || file_exists(public_path('build/manifest.json')))
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     @endif
 
     <style>
@@ -214,15 +214,28 @@
     <nav class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-cyan/10">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <a href="/" class="text-2xl font-extrabold tracking-tight">
+                <a href="{{ route('home') }}" class="text-2xl font-extrabold tracking-tight">
                     <span class="text-navy">A</span><span class="text-cyan">E</span>
                 </a>
 
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="/" class="nav-link active text-cyan text-sm font-semibold">Asosiy</a>
-                    <a href="/about" class="nav-link text-gray-600 hover:text-cyan text-sm font-medium">Men haqimda</a>
-                    <a href="/projects" class="nav-link text-gray-600 hover:text-cyan text-sm font-medium">Loyihalar</a>
-                    <a href="/contact" class="ml-2 px-5 py-2 btn-cyan text-sm font-semibold rounded-lg">
+                    <a href="{{ route('home') }}"
+                        class="nav-link {{ request()->routeIs('home') ? 'active text-cyan' : 'text-gray-600' }} text-sm font-semibold">
+                        Asosiy
+                    </a>
+
+                    <a href="{{ route('about') }}"
+                        class="nav-link {{ request()->routeIs('about') ? 'active text-cyan' : 'text-gray-600' }} text-sm font-medium">
+                        Men haqimda
+                    </a>
+
+                    <a href="{{ route('projects') }}"
+                        class="nav-link {{ request()->routeIs('projects') ? 'active text-cyan' : 'text-gray-600' }} text-sm font-medium">
+                        Loyihalar
+                    </a>
+
+                    <a href="{{ route('contact') }}"
+                        class="nav-link {{ request()->routeIs('contact') ? 'active text-cyan' : 'text-gray-600' }} text-sm font-medium">
                         Aloqa
                     </a>
                 </div>
@@ -235,10 +248,10 @@
 
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-cyan/10">
             <div class="px-6 py-5 space-y-3">
-                <a href="/" class="block text-sm text-cyan font-semibold py-2">Asosiy</a>
-                <a href="/about" class="block text-sm text-gray-600 font-medium py-2">Men haqimda</a>
-                <a href="/projects" class="block text-sm text-gray-600 font-medium py-2">Loyihalar</a>
-                <a href="/contact" class="block text-sm text-gray-600 font-medium py-2">Aloqa</a>
+                <a href="{{ route('home') }}" class="block text-sm text-cyan font-semibold py-2">Asosiy</a>
+                <a href="{{route('about')}}" class="block text-sm text-gray-600 font-medium py-2">Men haqimda</a>
+                <a href="{{ route('projects') }}" class="block text-sm text-gray-600 font-medium py-2">Loyihalar</a>
+                <a href="{{route('contact')}}" class="block text-sm text-gray-600 font-medium py-2">Aloqa</a>
             </div>
         </div>
     </nav>
@@ -267,13 +280,13 @@
                         <li><a href="/"
                                 class="footer-link-cyan text-sm text-gray-400 hover:text-cyan transition-colors">Asosiy
                                 sahifa</a></li>
-                        <li><a href="/about"
+                        <li><a href="{{route('about')}}"
                                 class="footer-link-cyan text-sm text-gray-400 hover:text-cyan transition-colors">Men
                                 haqimda</a></li>
-                        <li><a href="/projects"
+                        <li><a href="{{ route('projects') }}"
                                 class="footer-link-cyan text-sm text-gray-400 hover:text-cyan transition-colors">Loyihalarim</a>
                         </li>
-                        <li><a href="/contact"
+                        <li><a href="{{route('contact')}}"
                                 class="footer-link-cyan text-sm text-gray-400 hover:text-cyan transition-colors">Aloqa</a>
                         </li>
                     </ul>
@@ -311,9 +324,9 @@
                 class="mt-12 pt-8 border-t border-cyan/10 flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
                 <p class="text-xs text-gray-500">© 2024 Azatbek Ermalaev</p>
                 <div class="flex items-center space-x-6 text-xs text-gray-500">
-                    <a href="/about" class="footer-link-cyan hover:text-cyan transition-colors">Men haqimda</a>
-                    <a href="/projects" class="footer-link-cyan hover:text-cyan transition-colors">Loyihalar</a>
-                    <a href="/contact" class="footer-link-cyan hover:text-cyan transition-colors">Aloqa</a>
+                    <a href="{{route('about')}}" class="footer-link-cyan hover:text-cyan transition-colors">Men haqimda</a>
+                    <a href="{{ route('projects') }}" class="footer-link-cyan hover:text-cyan transition-colors">Loyihalar</a>
+                    <a href="{{route('contact')}}" class="footer-link-cyan hover:text-cyan transition-colors">Aloqa</a>
                 </div>
             </div>
         </div>
