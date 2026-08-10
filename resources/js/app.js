@@ -1,8 +1,5 @@
-import { createIcons, Menu, X } from 'lucide';
+import { createIcons, icons } from 'lucide';
 
 createIcons({
-    icons: {
-        Menu,
-        X
-    }
+    icons
 });
