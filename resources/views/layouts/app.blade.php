@@ -210,15 +210,22 @@
 
 <body class="bg-white text-gray-800">
 
-    <!-- Navbar -->
     <nav class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-cyan/10">
+
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
+
             <div class="flex justify-between items-center h-16">
-                <a href="{{ route('home') }}" class="text-2xl font-extrabold tracking-tight">
-                    <span class="text-navy">A</span><span class="text-cyan">E</span>
+
+                {{-- LOGO --}}
+                <a href="{{ route('home') }}"
+                    class="text-2xl font-extrabold tracking-tight">
+                    <span class="text-navy">A</span>
+                    <span class="text-cyan">E</span>
                 </a>
 
+                {{-- DESKTOP MENU --}}
                 <div class="hidden md:flex items-center space-x-8">
+
                     <a href="{{ route('home') }}"
                         class="nav-link {{ request()->routeIs('home') ? 'active text-cyan' : 'text-gray-600' }} text-sm font-semibold">
                         Asosiy
@@ -235,25 +242,63 @@
                     </a>
 
                     <a href="{{ route('contact') }}"
-                        class="nav-link {{ request()->routeIs('contact') ? 'active text-cyan' : 'text-gray-600' }} text-sm font-medium">
+                        class="ml-2 px-5 py-2 btn-cyan text-sm font-semibold rounded-lg">
                         Aloqa
                     </a>
+
                 </div>
 
-                <button id="menu-btn" class="md:hidden text-gray-600">
-                    <i class="fas fa-bars text-xl"></i>
+                {{-- MOBILE TOGGLE --}}
+                <button
+                    id="menu-btn"
+                    type="button"
+                    class="md:hidden flex items-center justify-center w-10 h-10 text-gray-700 hover:text-cyan transition"
+                    aria-label="Menu"
+                    aria-expanded="false">
+
+                    <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+
                 </button>
+
             </div>
+
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-cyan/10">
-            <div class="px-6 py-5 space-y-3">
-                <a href="{{ route('home') }}" class="block text-sm text-cyan font-semibold py-2">Asosiy</a>
-                <a href="{{route('about')}}" class="block text-sm text-gray-600 font-medium py-2">Men haqimda</a>
-                <a href="{{ route('projects') }}" class="block text-sm text-gray-600 font-medium py-2">Loyihalar</a>
-                <a href="{{route('contact')}}" class="block text-sm text-gray-600 font-medium py-2">Aloqa</a>
+        {{-- MOBILE MENU --}}
+        <div
+            id="mobile-menu"
+            class="hidden md:hidden bg-white border-t border-cyan/10 shadow-lg">
+
+            <div class="px-6 py-5 space-y-2">
+
+                <a href="{{ route('home') }}"
+                    class="block py-3 px-3 rounded-lg text-sm font-semibold
+                {{ request()->routeIs('home') ? 'bg-cyan/10 text-cyan' : 'text-gray-600' }}">
+                    Asosiy
+                </a>
+
+                <a href="{{ route('about') }}"
+                    class="block py-3 px-3 rounded-lg text-sm font-medium
+                {{ request()->routeIs('about') ? 'bg-cyan/10 text-cyan' : 'text-gray-600' }}">
+                    Men haqimda
+                </a>
+
+                <a href="{{ route('projects') }}"
+                    class="block py-3 px-3 rounded-lg text-sm font-medium
+                {{ request()->routeIs('projects') ? 'bg-cyan/10 text-cyan' : 'text-gray-600' }}">
+                    Loyihalar
+                </a>
+
+                <a href="{{ route('contact') }}"
+                    class="block py-3 px-3 rounded-lg text-sm font-semibold
+                {{ request()->routeIs('contact') ? 'bg-cyan/10 text-cyan' : 'text-cyan' }}">
+                    Aloqa
+                </a>
+
             </div>
+
         </div>
+
     </nav>
 
     <main>
@@ -333,27 +378,55 @@
     </footer>
 
     <script>
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+        document.addEventListener('DOMContentLoaded', () => {
 
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+            // ==============================
+            // MOBILE MENU
+            // ==============================
 
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('shadow-lg');
-            } else {
-                nav.classList.remove('shadow-lg');
+            // Agar elementlar mavjud bo'lsa
+            if (menuBtn && mobileMenu) {
+
+                // Menu ochish / yopish
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+
+                // Menu ichidagi link bosilganda yopish
+                const mobileLinks = mobileMenu.querySelectorAll('a');
+
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+
             }
+
+
+            // ==============================
+            // NAVBAR SCROLL EFFECT
+            // ==============================
+
+            const nav = document.querySelector('nav');
+
+            if (nav) {
+
+                window.addEventListener('scroll', () => {
+
+                    if (window.scrollY > 50) {
+                        nav.classList.add('shadow-lg');
+                    } else {
+                        nav.classList.remove('shadow-lg');
+                    }
+
+                });
+
+            }
+
         });
     </script>
 </body>

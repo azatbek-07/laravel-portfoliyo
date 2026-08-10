@@ -30,12 +30,7 @@
                             Loyihalar, hamkorlik yoki savollar uchun doim ochiqman.
                         </p>
                     </div>
-                    <div class="hidden lg:block">
-                        <div class="flex items-center gap-2 text-sm text-slate-400">
-                            <span class="w-12 h-px bg-gradient-to-r from-transparent to-cyan-400"></span>
-                            <span>#contact</span>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mt-4 mx-auto lg:mx-0"></div>
             </div>

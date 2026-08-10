@@ -30,12 +30,7 @@
                             Kimligim, qayerdan ekanligim va qanday texnologiyalar bilan ishlashim haqida
                         </p>
                     </div>
-                    <div class="hidden lg:block">
-                        <div class="flex items-center gap-2 text-sm text-slate-400">
-                            <span class="w-12 h-px bg-gradient-to-r from-transparent to-cyan-400"></span>
-                            <span>#about</span>
-                        </div>
-                    </div>
+                   
                 </div>
                 <div class="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mt-4 mx-auto lg:mx-0"></div>
             </div>
@@ -342,7 +337,7 @@
                                     <h4 class="text-sm font-semibold text-slate-800">Samarqand Davlat Universiteti</h4>
                                     <p class="text-xs text-slate-500">Sun'iy intellekt va raqamli texnologiyalar fakulteti</p>
                                     <div class="flex items-center gap-2 mt-1">
-                                        <span class="text-xs font-medium text-cyan-600 bg-cyan-50 px-2 py-0.5 rounded">2023 - Hozirgacha</span>
+                                        <span class="text-xs font-medium text-cyan-600 bg-cyan-50 px-2 py-0.5 rounded">2025 - Hozirgacha</span>
                                         <span class="text-xs text-slate-400">• 2-kurs</span>
                                     </div>
                                 </div>
