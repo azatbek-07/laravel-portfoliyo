@@ -37,7 +37,7 @@ class ProjectSeeder extends Seeder
                     'Responsive'
                 ],
 
-                'github' => 'https://github.com/azatbek-07',
+                'github' => 'https://github.com/azatbek-07/samdu-oshxona',
 
                 'demo' => '#',
 
@@ -67,7 +67,7 @@ class ProjectSeeder extends Seeder
                     'MySQL'
                 ],
 
-                'github' => 'https://github.com/azatbek-07',
+                'github' => 'https://github.com/azatbek-07/forma',
 
                 'demo' => '#',
 
