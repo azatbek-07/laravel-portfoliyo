@@ -63,12 +63,12 @@
                         [
                             'title' => 'SamDU Oshxona',
                             'description' => 'Samarqand Davlat Universiteti oshxonasi haqida to\'liq ma\'lumot beruvchi zamonaviy web-sayt. Menyu, narxlar, ish vaqti va kontakt ma\'lumotlari mavjud.',
-                            'image' => 'samdu-oshxona.jpg',
+                            'image' => 'samdu-oshxona.png',
                             'icon' => 'fa-utensils',
                             'gradient' => 'from-cyan-400 to-blue-500',
                             'status' => 'Yakunlangan',
                             'status_color' => 'emerald',
-                            'techs' => ['HTML5', 'CSS3', 'JavaScript', 'Responsive'],
+                            'techs' => ['HTML5', 'CSS3', 'JavaScript','React.js', 'Responsive'],
                             'github' => 'https://github.com/azatbek-07',
                             'demo' => '#',
                             'demo_active' => true,
@@ -76,7 +76,7 @@
                         [
                             'title' => 'Register & Login Tizimi',
                             'description' => 'Foydalanuvchilarni ro\'yxatdan o\'tkazish va tizimga kirish uchun to\'liq autentifikatsiya tizimi. Validatsiya, xavfsizlik tekshiruvlari va zamonaviy UI bilan.',
-                            'image' => 'login-system.jpg',
+                            'image' => 'login.png',
                             'icon' => 'fa-lock',
                             'gradient' => 'from-indigo-500 to-purple-600',
                             'status' => 'Yakunlangan',
@@ -120,12 +120,12 @@
                         class="group bg-white/80 backdrop-blur-sm border border-slate-200/60 rounded-2xl overflow-hidden shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-cyan-200/30 transition-all duration-500 hover:-translate-y-2">
                         <div class="relative h-48 overflow-hidden">
                             @php
-                                $imagePath = public_path('images/projects/' . $project['image']);
+                                $imagePath = public_path('images/' . $project['image']);
                                 $hasImage = file_exists($imagePath);
                             @endphp
 
                             @if ($hasImage)
-                                <img src="{{ asset('images/projects/' . $project['image']) }}" alt="{{ $project['title'] }}"
+                                <img src="{{ asset('images/' . $project['image']) }}" alt="{{ $project['title'] }}"
                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/20 to-transparent">
                                 </div>
@@ -139,10 +139,7 @@
                             @endif
 
                             <div class="absolute inset-0 flex items-center justify-center">
-                                <div
-                                    class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/30 shadow-2xl">
-                                    <i class="fas {{ $project['icon'] }} text-3xl text-white"></i>
-                                </div>
+                                
                             </div>
                             <div class="absolute top-4 right-4">
                                 <span
