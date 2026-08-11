@@ -63,8 +63,7 @@ class ProjectSeeder extends Seeder
                     'HTML5',
                     'CSS3',
                     'JavaScript',
-                    'PHP',
-                    'MySQL'
+                    'Tailwind CSS',
                 ],
 
                 'github' => 'https://github.com/azatbek-07/forma',
@@ -75,61 +74,116 @@ class ProjectSeeder extends Seeder
             ],
 
             [
-                'title' => 'E-commerce Platform',
+                'title' => 'FreelanceHub',
 
-                'description' => "To'liq funksional onlayn-do'kon platformasi. Mahsulotlar katalogi, savat, buyurtma qilish va to'lov tizimi. Laravel va React asosida qurilmoqda.",
+                'description' => "O'zbekistondagi freelancerlar va buyurtmachilarni bog'lovchi zamonaviy freelance platforma. Professional mutaxassislarni topish, loyihalar joylashtirish va ishonchli hamkorlik qilish imkonini beradi.",
 
-                'image' => 'ecommerce.jpg',
+                'image' => 'freelancerhub.png',
 
-                'icon' => 'fa-shopping-cart',
+                'icon' => 'fa-briefcase',
 
-                'gradient' => 'from-emerald-400 to-teal-500',
+                'gradient' => 'from-violet-500 to-purple-600',
 
-                'status' => 'Ishlab chiqilmoqda',
+                'status' => 'Yakunlangan',
 
                 'status_color' => 'amber',
 
                 'techs' => [
-                    'React.js',
                     'Laravel',
+                    'PHP',
                     'Tailwind CSS',
-                    'REST API'
                 ],
 
-                'github' => 'https://github.com/azatbek-07',
+                'github' => 'https://github.com/azatbek-07/laravel-freelancer-hub',
 
                 'demo' => '#',
 
-                'demo_active' => false,
+                'demo_active' => true,
             ],
 
             [
-                'title' => 'AI Chat Assistant',
+                'title' => 'SuperMarket',
 
-                'description' => "Sun'iy intellekt asosida ishlovchi chat assistant. Foydalanuvchilarga savollarga javob berish, tavsiyalar va yordam berish uchun mo'ljallangan.",
+                'description' => "Zamonaviy onlayn supermarket platformasi. 5000+ mahsulot, qulay xarid qilish, aksiyalar, savat va 24/7 yetkazib berish xizmatlarini taqdim etuvchi to'liq funksional e-commerce tizim.",
 
-                'image' => 'ai-chat.jpg',
+                'image' => 'supermarket.png',
 
-                'icon' => 'fa-robot',
+                'icon' => 'fa-shopping-cart',
 
-                'gradient' => 'from-rose-400 to-pink-500',
+                'gradient' => 'from-green-500 to-emerald-600',
 
-                'status' => 'Ishlab chiqilmoqda',
+                'status' => 'Yakunlangan',
 
                 'status_color' => 'amber',
 
                 'techs' => [
-                    'Python',
-                    'TensorFlow',
-                    'NLP',
-                    'React.js'
+                    'Laravel',
+                    'PHP',
+                    'MySQL',
+                    'Tailwind CSS'
                 ],
 
-                'github' => 'https://github.com/azatbek-07',
+                'github' => 'https://github.com/azatbek-07/supermarket-laravel',
 
                 'demo' => '#',
 
-                'demo_active' => false,
+                'demo_active' => true,
+            ],
+            [
+                'title' => 'UyTop',
+
+                'description' => "Zamonaviy uy-joy qidirish platformasi. Foydalanuvchilar o'zlariga mos uylarni joylashuvi, turi va narxi bo'yicha izlashlari, batafsil ma'lumotlarni ko'rishlari va qulay uy topishlari mumkin.",
+
+                'image' => 'uytop.png',
+
+                'icon' => 'fa-house',
+
+                'gradient' => 'from-yellow-400 to-amber-500',
+
+                'status' => 'Yakunlangan',
+
+                'status_color' => 'green',
+
+                'techs' => [
+                    'Laravel',
+                    'PHP',
+                    'MySQL',
+                    'Tailwind CSS'
+                ],
+
+                'github' => 'https://github.com/azatbek-07/houses-website-laravel',
+
+                'demo' => '#',
+
+                'demo_active' => true,
+            ],
+            [
+                'title' => 'FitLife',
+
+                'description' => "Sog'lom turmush tarzini qo'llab-quvvatlash uchun yaratilgan zamonaviy fitness platformasi. Professional trenerlar, mashg'ulotlar va foydali xizmatlar orqali foydalanuvchilarga o'z maqsadlariga erishishda yordam beradi.",
+
+                'image' => 'fitlife.png',
+
+                'icon' => 'fa-dumbbell',
+
+                'gradient' => 'from-orange-500 to-red-500',
+
+                'status' => 'Yakunlangan',
+
+                'status_color' => 'green',
+
+                'techs' => [
+                    'Laravel',
+                    'PHP',
+                    'MySQL',
+                    'Tailwind CSS'
+                ],
+
+                'github' => 'https://github.com/azatbek-07/laravel-fitnes-website',
+
+                'demo' => '#',
+
+                'demo_active' => true,
             ],
 
         ];
