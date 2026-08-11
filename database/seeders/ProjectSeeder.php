@@ -39,7 +39,7 @@ class ProjectSeeder extends Seeder
 
                 'github' => 'https://github.com/azatbek-07/samdu-oshxona',
 
-                'demo' => '#',
+                'demo' => 'https://samdu-oshxona.netlify.app/',
 
                 'demo_active' => true,
             ],
@@ -69,7 +69,7 @@ class ProjectSeeder extends Seeder
 
                 'github' => 'https://github.com/azatbek-07/forma',
 
-                'demo' => '#',
+                'demo' => 'https://login-reegist.netlify.app/',
 
                 'demo_active' => true,
             ],
