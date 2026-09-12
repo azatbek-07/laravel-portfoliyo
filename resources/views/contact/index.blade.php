@@ -142,7 +142,8 @@
                             Savollaringiz yoki takliflaringiz bo'lsa, bemalol yozing. Tez orada javob beraman.
                         </p>
 
-                        <form class="space-y-5" onsubmit="event.preventDefault(); alert('Xabaringiz yuborildi! Tez orada javob beramiz.');">
+                        <form class="space-y-5" action="{{ route('contact.send') }}" method="POST">
+                            @csrf
                             <div class="grid sm:grid-cols-2 gap-5">
                                 <div>
                                     <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
@@ -151,7 +152,7 @@
                                         </svg>
                                         Ismingiz
                                     </label>
-                                    <input type="text" placeholder="Azatbek" required
+                                    <input type="text" name="name" placeholder="Azatbek" required
                                         class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all placeholder:text-slate-400">
                                 </div>
 
@@ -162,7 +163,7 @@
                                         </svg>
                                         Email
                                     </label>
-                                    <input type="email" placeholder="azatbek@example.com" required
+                                    <input type="email" name="email" placeholder="azatbek@example.com" required
                                         class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all placeholder:text-slate-400">
                                 </div>
                             </div>
@@ -174,7 +175,7 @@
                                     </svg>
                                     Mavzu
                                 </label>
-                                <input type="text" placeholder="Loyiha taklifi" required
+                                <input type="text" name="subject" placeholder="Loyiha taklifi" required
                                     class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all placeholder:text-slate-400">
                             </div>
 
@@ -185,7 +186,7 @@
                                     </svg>
                                     Xabar
                                 </label>
-                                <textarea rows="5" placeholder="Xabaringizni bu yerga yozing..." required
+                                <textarea name="message" rows="5" placeholder="Xabaringizni bu yerga yozing..." required
                                     class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all resize-none placeholder:text-slate-400"></textarea>
                             </div>
 
