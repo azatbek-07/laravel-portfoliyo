@@ -7,7 +7,7 @@
     <title>Azatbek Ermalaev | Portfolio</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     @if (file_exists(public_path('hot')) || file_exists(public_path('build/manifest.json')))
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
     @endif
 
     <style>
@@ -217,8 +217,7 @@
             <div class="flex justify-between items-center h-16">
 
                 {{-- LOGO --}}
-                <a href="{{ route('home') }}"
-                    class="text-2xl font-extrabold tracking-tight">
+                <a href="{{ route('home') }}" class="text-2xl font-extrabold tracking-tight">
                     <span class="text-navy">A</span>
                     <span class="text-cyan">E</span>
                 </a>
@@ -241,20 +240,16 @@
                         Loyihalar
                     </a>
 
-                    <a href="{{ route('contact') }}"
-                        class="ml-2 px-5 py-2 btn-cyan text-sm font-semibold rounded-lg">
+                    <a href="{{ route('contact') }}" class="ml-2 px-5 py-2 btn-cyan text-sm font-semibold rounded-lg">
                         Aloqa
                     </a>
 
                 </div>
 
                 {{-- MOBILE TOGGLE --}}
-                <button
-                    id="menu-btn"
-                    type="button"
+                <button id="menu-btn" type="button"
                     class="md:hidden flex items-center justify-center w-10 h-10 text-gray-700 hover:text-cyan transition"
-                    aria-label="Menu"
-                    aria-expanded="false">
+                    aria-label="Menu" aria-expanded="false">
 
                     <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
 
@@ -265,32 +260,26 @@
         </div>
 
         {{-- MOBILE MENU --}}
-        <div
-            id="mobile-menu"
-            class="hidden md:hidden bg-white border-t border-cyan/10 shadow-lg">
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-cyan/10 shadow-lg">
 
             <div class="px-6 py-5 space-y-2">
 
-                <a href="{{ route('home') }}"
-                    class="block py-3 px-3 rounded-lg text-sm font-semibold
+                <a href="{{ route('home') }}" class="block py-3 px-3 rounded-lg text-sm font-semibold
                 {{ request()->routeIs('home') ? 'bg-cyan/10 text-cyan' : 'text-gray-600' }}">
                     Asosiy
                 </a>
 
-                <a href="{{ route('about') }}"
-                    class="block py-3 px-3 rounded-lg text-sm font-medium
+                <a href="{{ route('about') }}" class="block py-3 px-3 rounded-lg text-sm font-medium
                 {{ request()->routeIs('about') ? 'bg-cyan/10 text-cyan' : 'text-gray-600' }}">
                     Men haqimda
                 </a>
 
-                <a href="{{ route('projects') }}"
-                    class="block py-3 px-3 rounded-lg text-sm font-medium
+                <a href="{{ route('projects') }}" class="block py-3 px-3 rounded-lg text-sm font-medium
                 {{ request()->routeIs('projects') ? 'bg-cyan/10 text-cyan' : 'text-gray-600' }}">
                     Loyihalar
                 </a>
 
-                <a href="{{ route('contact') }}"
-                    class="block py-3 px-3 rounded-lg text-sm font-semibold
+                <a href="{{ route('contact') }}" class="block py-3 px-3 rounded-lg text-sm font-semibold
                 {{ request()->routeIs('contact') ? 'bg-cyan/10 text-cyan' : 'text-cyan' }}">
                     Aloqa
                 </a>
@@ -300,6 +289,11 @@
         </div>
 
     </nav>
+    @if(session('success'))
+        <div class="mx-auto mt-4 max-w-7xl rounded-lg bg-green-100 px-4 py-3 text-green-700">
+            {{ session('success') }}
+        </div>
+    @endif
 
     <main>
         @yield('content')
@@ -369,8 +363,10 @@
                 class="mt-12 pt-8 border-t border-cyan/10 flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
                 <p class="text-xs text-gray-500">© 2024 Azatbek Ermalaev</p>
                 <div class="flex items-center space-x-6 text-xs text-gray-500">
-                    <a href="{{route('about')}}" class="footer-link-cyan hover:text-cyan transition-colors">Men haqimda</a>
-                    <a href="{{ route('projects') }}" class="footer-link-cyan hover:text-cyan transition-colors">Loyihalar</a>
+                    <a href="{{route('about')}}" class="footer-link-cyan hover:text-cyan transition-colors">Men
+                        haqimda</a>
+                    <a href="{{ route('projects') }}"
+                        class="footer-link-cyan hover:text-cyan transition-colors">Loyihalar</a>
                     <a href="{{route('contact')}}" class="footer-link-cyan hover:text-cyan transition-colors">Aloqa</a>
                 </div>
             </div>
