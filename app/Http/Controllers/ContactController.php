@@ -28,9 +28,9 @@ class ContactController extends Controller
             . "💬 Xabar:\n{$request->message}";
 
         Http::withoutVerifying()->post(
-            'https://api.telegram.org/bot' . env('8642702929:AAHrpkh0_yOoKO87hfx-1YDvA3rT74rHGvE') . '/sendMessage',
+            'https://api.telegram.org/bot' . env('TELEGRAM_BOT_TOKEN') . '/sendMessage',
             [
-                'chat_id' => env('1280386647'),
+                'chat_id' => env('TELEGRAM_CHAT_ID'),
                 'text' => $text,
             ]
         );
