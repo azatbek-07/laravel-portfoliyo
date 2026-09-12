@@ -22,19 +22,21 @@ class ContactController extends Controller
         ]);
 
         $text = "📩 YANGI XABAR\n\n"
-              . "👤 Ism: {$request->name}\n"
-              . "📧 Email: {$request->email}\n"
-              . "📌 Mavzu: {$request->subject}\n\n"
-              . "💬 Xabar:\n{$request->message}";
+            . "👤 Ism: {$request->name}\n"
+            . "📧 Email: {$request->email}\n"
+            . "📌 Mavzu: {$request->subject}\n\n"
+            . "💬 Xabar:\n{$request->message}";
 
-        Http::post(
+        Http::withoutVerifying()->post(
             'https://api.telegram.org/bot' . env('8642702929:AAHrpkh0_yOoKO87hfx-1YDvA3rT74rHGvE') . '/sendMessage',
             [
                 'chat_id' => env('1280386647'),
                 'text' => $text,
             ]
         );
-
-        return back()->with('success', 'Xabaringiz muvaffaqiyatli yuborildi!');
+        return back()->with(
+            'success',
+            'Xabaringiz muvaffaqiyatli yuborildi!'
+        );
     }
 }
