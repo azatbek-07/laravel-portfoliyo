@@ -250,16 +250,33 @@
                         {{ __('nav.projects') }}
                     </a>
 
-                    {{-- LANGUAGE SWITCHER (DESKTOP) --}}
-                    <div class="inline-flex items-center bg-slate-100/90 border border-slate-200/80 rounded-xl p-1 gap-0.5">
-                        @foreach ($locales as $code => $lang)
-                            <a href="{{ route('lang.switch', $code) }}"
-                                title="{{ $lang['name'] }}"
-                                class="px-2.5 py-1 rounded-lg text-xs font-bold transition-all duration-200 flex items-center gap-1 {{ $currentLocale === $code ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-sm' : 'text-slate-600 hover:text-cyan-600 hover:bg-white/60' }}">
-                                <span>{{ $lang['flag'] }}</span>
-                                <span>{{ $lang['label'] }}</span>
-                            </a>
-                        @endforeach
+                    {{-- LANGUAGE DROPDOWN (DESKTOP) --}}
+                    @php
+                        $activeLang = $locales[$currentLocale] ?? $locales['uz'];
+                    @endphp
+                    <div class="relative lang-dropdown">
+                        <button type="button"
+                            class="lang-dropdown-btn inline-flex items-center gap-2 px-3.5 py-2 bg-slate-50 hover:bg-cyan-50/60 border border-slate-200 hover:border-cyan-400 rounded-xl text-xs font-semibold text-slate-700 transition-all shadow-sm cursor-pointer">
+                            <span class="text-sm leading-none">{{ $activeLang['flag'] }}</span>
+                            <span>{{ $activeLang['name'] }}</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lang-chevron text-slate-400 transition-transform duration-200">
+                                <path d="m6 9 6 6 6-6"/>
+                            </svg>
+                        </button>
+
+                        <div class="lang-dropdown-menu hidden absolute right-0 mt-2 w-44 bg-white border border-slate-200/80 rounded-xl shadow-xl shadow-slate-200/60 py-1.5 z-50 overflow-hidden">
+                            @foreach ($locales as $code => $lang)
+                                @if ($currentLocale !== $code)
+                                    <a href="{{ route('lang.switch', $code) }}"
+                                        class="flex items-center justify-between px-3.5 py-2.5 text-xs font-medium text-slate-700 hover:bg-cyan-50/70 hover:text-cyan-600 transition-colors">
+                                        <span class="flex items-center gap-2.5">
+                                            <span class="text-sm leading-none">{{ $lang['flag'] }}</span>
+                                            <span>{{ $lang['name'] }}</span>
+                                        </span>
+                                    </a>
+                                @endif
+                            @endforeach
+                        </div>
                     </div>
 
                     <a href="{{ route('contact') }}" class="px-5 py-2 btn-cyan text-sm font-semibold rounded-lg">
@@ -268,15 +285,31 @@
 
                 </div>
 
-                {{-- MOBILE CONTROLS (LANG + TOGGLE) --}}
+                {{-- MOBILE CONTROLS (LANG DROPDOWN + TOGGLE) --}}
                 <div class="flex md:hidden items-center gap-2">
-                    <div class="inline-flex items-center bg-slate-100 border border-slate-200/80 rounded-lg p-0.5">
-                        @foreach ($locales as $code => $lang)
-                            <a href="{{ route('lang.switch', $code) }}"
-                                class="px-2 py-1 rounded-md text-[11px] font-bold transition-all {{ $currentLocale === $code ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-sm' : 'text-slate-600' }}">
-                                {{ $lang['label'] }}
-                            </a>
-                        @endforeach
+                    <div class="relative lang-dropdown">
+                        <button type="button"
+                            class="lang-dropdown-btn inline-flex items-center gap-1.5 px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-semibold text-slate-700 shadow-sm">
+                            <span>{{ $activeLang['flag'] }}</span>
+                            <span>{{ $activeLang['label'] }}</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lang-chevron text-slate-400 transition-transform duration-200">
+                                <path d="m6 9 6 6 6-6"/>
+                            </svg>
+                        </button>
+
+                        <div class="lang-dropdown-menu hidden absolute right-0 mt-2 w-40 bg-white border border-slate-200/80 rounded-xl shadow-xl py-1.5 z-50 overflow-hidden">
+                            @foreach ($locales as $code => $lang)
+                                @if ($currentLocale !== $code)
+                                    <a href="{{ route('lang.switch', $code) }}"
+                                        class="flex items-center justify-between px-3 py-2 text-xs font-medium text-slate-700 hover:bg-cyan-50/70 hover:text-cyan-600 transition-colors">
+                                        <span class="flex items-center gap-2">
+                                            <span>{{ $lang['flag'] }}</span>
+                                            <span>{{ $lang['name'] }}</span>
+                                        </span>
+                                    </a>
+                                @endif
+                            @endforeach
+                        </div>
                     </div>
 
                     <button id="menu-btn" type="button"
@@ -428,6 +461,35 @@
                     }
                 });
             }
+
+            // Language dropdowns
+            const dropdowns = document.querySelectorAll('.lang-dropdown');
+            dropdowns.forEach(dropdown => {
+                const btn = dropdown.querySelector('.lang-dropdown-btn');
+                const menu = dropdown.querySelector('.lang-dropdown-menu');
+                const chevron = dropdown.querySelector('.lang-chevron');
+
+                if (btn && menu) {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const isHidden = menu.classList.contains('hidden');
+
+                        // Close all dropdowns first
+                        document.querySelectorAll('.lang-dropdown-menu').forEach(m => m.classList.add('hidden'));
+                        document.querySelectorAll('.lang-chevron').forEach(c => c.classList.remove('rotate-180'));
+
+                        if (isHidden) {
+                            menu.classList.remove('hidden');
+                            if (chevron) chevron.classList.add('rotate-180');
+                        }
+                    });
+                }
+            });
+
+            document.addEventListener('click', () => {
+                document.querySelectorAll('.lang-dropdown-menu').forEach(m => m.classList.add('hidden'));
+                document.querySelectorAll('.lang-chevron').forEach(c => c.classList.remove('rotate-180'));
+            });
         });
     </script>
 </body>
