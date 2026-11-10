@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'About sahifa - Portfoliyo')
+@section('title', __('meta.about_title'))
 
 @section('content')
 
@@ -21,16 +21,15 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user mr-1">
                                 <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
                             </svg>
-                            Haqimda
+                            {{ __('about.badge') }}
                         </span>
                         <h1 class="text-4xl md:text-5xl font-extrabold text-slate-800 mb-4">
-                            Men <span class="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">haqimda</span>
+                            {{ __('about.title_1') }} <span class="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">{{ __('about.title_2') }}</span>
                         </h1>
                         <p class="text-slate-500 text-lg max-w-2xl mx-auto lg:mx-0">
-                            Kimligim, qayerdan ekanligim va qanday texnologiyalar bilan ishlashim haqida
+                            {{ __('about.subtitle') }}
                         </p>
                     </div>
-                   
                 </div>
                 <div class="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mt-4 mx-auto lg:mx-0"></div>
             </div>
@@ -44,14 +43,14 @@
                                 <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
                             </svg>
                         </div>
-                        <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Shaxsiy ma'lumotlar</h3>
+                        <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">{{ __('about.personal_info') }}</h3>
                         <div class="space-y-4">
                             <div class="group">
                                 <span class="text-xs text-slate-400 flex items-center gap-1.5">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user text-cyan-500">
                                         <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
                                     </svg>
-                                    Ism
+                                    {{ __('about.name_label') }}
                                 </span>
                                 <p class="text-sm font-semibold text-slate-800 group-hover:text-cyan-600 transition-colors">Azatbek Ermalaev</p>
                             </div>
@@ -60,45 +59,45 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin text-cyan-500">
                                         <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
                                     </svg>
-                                    Yashash joyi
+                                    {{ __('about.location_label') }}
                                 </span>
-                                <p class="text-sm font-semibold text-slate-800 group-hover:text-cyan-600 transition-colors">Samarqand, O'zbekiston</p>
+                                <p class="text-sm font-semibold text-slate-800 group-hover:text-cyan-600 transition-colors">{{ __('about.location_value') }}</p>
                             </div>
                             <div class="group">
                                 <span class="text-xs text-slate-400 flex items-center gap-1.5">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flag text-cyan-500">
                                         <path d="M4 21V3"/><path d="M4 7h12l-1.5-3L16 7h4v7h-4l-1.5 3L12 14H4"/>
                                     </svg>
-                                    Tug'ilgan joy
+                                    {{ __('about.birthplace_label') }}
                                 </span>
-                                <p class="text-sm font-semibold text-slate-800 group-hover:text-cyan-600 transition-colors">Qoraqalpog'iston</p>
+                                <p class="text-sm font-semibold text-slate-800 group-hover:text-cyan-600 transition-colors">{{ __('about.birthplace_value') }}</p>
                             </div>
                             <div class="group">
                                 <span class="text-xs text-slate-400 flex items-center gap-1.5">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building-2 text-cyan-500">
                                         <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12h4"/><path d="M6 16h4"/><path d="M6 8h4"/><path d="M14 8h4"/><path d="M14 12h4"/><path d="M14 16h4"/>
                                     </svg>
-                                    Universitet
+                                    {{ __('about.university_label') }}
                                 </span>
-                                <p class="text-sm font-semibold text-slate-800 group-hover:text-cyan-600 transition-colors">Samarqand Davlat Universiteti</p>
+                                <p class="text-sm font-semibold text-slate-800 group-hover:text-cyan-600 transition-colors">{{ __('about.university_value') }}</p>
                             </div>
                             <div class="group">
                                 <span class="text-xs text-slate-400 flex items-center gap-1.5">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain text-cyan-500">
                                         <path d="M12 4a4 4 0 0 1 3.5 6A4 4 0 0 1 12 18a4 4 0 0 1-3.5-6A4 4 0 0 1 12 4Z"/><path d="M12 2v2"/><path d="M12 18v2"/><path d="M17.5 8.5 19 7"/><path d="M5 7l1.5 1.5"/><path d="M17.5 15.5 19 17"/><path d="M5 17l1.5-1.5"/><path d="M22 12h-2"/><path d="M4 12H2"/>
                                     </svg>
-                                    Fakultet
+                                    {{ __('about.faculty_label') }}
                                 </span>
-                                <p class="text-sm font-semibold text-slate-800 group-hover:text-cyan-600 transition-colors">Sun'iy intellekt va raqamli texnologiyalar</p>
+                                <p class="text-sm font-semibold text-slate-800 group-hover:text-cyan-600 transition-colors">{{ __('about.faculty_value') }}</p>
                             </div>
                             <div class="group">
                                 <span class="text-xs text-slate-400 flex items-center gap-1.5">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open text-cyan-500">
                                         <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                                     </svg>
-                                    Kurs
+                                    {{ __('about.course_label') }}
                                 </span>
-                                <p class="text-sm font-semibold text-slate-800 group-hover:text-cyan-600 transition-colors">2-kurs</p>
+                                <p class="text-sm font-semibold text-slate-800 group-hover:text-cyan-600 transition-colors">{{ __('about.course_value') }}</p>
                             </div>
                         </div>
                     </div>
@@ -112,7 +111,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send">
                                     <path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4Z"/>
                                 </svg>
-                                Bog'lanish
+                                {{ __('about.connect') }}
                             </h3>
                             <div class="space-y-3">
                                 <a href="https://t.me/A_z_a_t_b_e_k" target="_blank"
@@ -159,10 +158,7 @@
                                 </svg>
                             </div>
                             <p class="text-slate-600 leading-relaxed">
-                                Sun'iy intellekt va raqamli texnologiyalar fakultetida 2-kurs talabasiman.
-                                Full Stack dasturchi bo'lishni maqsad qilganman. Frontend va Backend texnologiyalarini
-                                o'rganyapman. PHP, C++, JavaScript, React, HTML, CSS va Laravel frameworkida ishlayman.
-                                Kelajakda katta loyihalarda ishlash va o'z startapimni yaratish niyatim bor.
+                                {{ __('about.bio_text') }}
                             </p>
                         </div>
                     </div>
@@ -177,7 +173,7 @@
                             </div>
                             <div>
                                 <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Frontend</h3>
-                                <p class="text-sm font-medium text-slate-700">Ko'nikmalar</p>
+                                <p class="text-sm font-medium text-slate-700">{{ __('about.skills') }}</p>
                             </div>
                         </div>
                         <div class="grid sm:grid-cols-2 gap-6">
@@ -230,7 +226,7 @@
                             </div>
                             <div>
                                 <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Backend</h3>
-                                <p class="text-sm font-medium text-slate-700">Ko'nikmalar</p>
+                                <p class="text-sm font-medium text-slate-700">{{ __('about.skills') }}</p>
                             </div>
                         </div>
                         <div class="grid sm:grid-cols-2 gap-6">
@@ -283,8 +279,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Qiziqishlar</h3>
-                                    <p class="text-sm font-medium text-slate-700">Mening hobbiylarim</p>
+                                    <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">{{ __('about.interests') }}</h3>
+                                    <p class="text-sm font-medium text-slate-700">{{ __('about.hobbies') }}</p>
                                 </div>
                             </div>
                             <div class="grid grid-cols-1 gap-3">
@@ -292,8 +288,8 @@
                                     <div class="flex items-center gap-3">
                                         <span class="text-2xl">🤖</span>
                                         <div>
-                                            <h4 class="text-sm font-semibold text-slate-800 group-hover:text-cyan-600 transition-colors">Sun'iy Intellekt</h4>
-                                            <p class="text-xs text-slate-500">AI va raqamli texnologiyalar</p>
+                                            <h4 class="text-sm font-semibold text-slate-800 group-hover:text-cyan-600 transition-colors">{{ __('about.interest_ai') }}</h4>
+                                            <p class="text-xs text-slate-500">{{ __('about.interest_ai_desc') }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -301,8 +297,8 @@
                                     <div class="flex items-center gap-3">
                                         <span class="text-2xl">💻</span>
                                         <div>
-                                            <h4 class="text-sm font-semibold text-slate-800 group-hover:text-cyan-600 transition-colors">Full Stack</h4>
-                                            <p class="text-xs text-slate-500">Frontend + Backend</p>
+                                            <h4 class="text-sm font-semibold text-slate-800 group-hover:text-cyan-600 transition-colors">{{ __('about.interest_fs') }}</h4>
+                                            <p class="text-xs text-slate-500">{{ __('about.interest_fs_desc') }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -310,8 +306,8 @@
                                     <div class="flex items-center gap-3">
                                         <span class="text-2xl">🚀</span>
                                         <div>
-                                            <h4 class="text-sm font-semibold text-slate-800 group-hover:text-cyan-600 transition-colors">Startup</h4>
-                                            <p class="text-xs text-slate-500">O'z loyihalarim</p>
+                                            <h4 class="text-sm font-semibold text-slate-800 group-hover:text-cyan-600 transition-colors">{{ __('about.interest_startup') }}</h4>
+                                            <p class="text-xs text-slate-500">{{ __('about.interest_startup_desc') }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -327,26 +323,26 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Ta'lim</h3>
-                                    <p class="text-sm font-medium text-slate-700">Mening yo'lim</p>
+                                    <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">{{ __('about.education') }}</h3>
+                                    <p class="text-sm font-medium text-slate-700">{{ __('about.my_path') }}</p>
                                 </div>
                             </div>
                             <div class="space-y-4">
                                 <div class="relative pl-6 border-l-2 border-cyan-400 pb-4">
                                     <div class="absolute -left-1.5 top-0 w-3 h-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full shadow-lg shadow-cyan-500/25"></div>
-                                    <h4 class="text-sm font-semibold text-slate-800">Samarqand Davlat Universiteti</h4>
-                                    <p class="text-xs text-slate-500">Sun'iy intellekt va raqamli texnologiyalar fakulteti</p>
+                                    <h4 class="text-sm font-semibold text-slate-800">{{ __('about.edu_uni_title') }}</h4>
+                                    <p class="text-xs text-slate-500">{{ __('about.edu_uni_faculty') }}</p>
                                     <div class="flex items-center gap-2 mt-1">
-                                        <span class="text-xs font-medium text-cyan-600 bg-cyan-50 px-2 py-0.5 rounded">2025 - Hozirgacha</span>
-                                        <span class="text-xs text-slate-400">• 2-kurs</span>
+                                        <span class="text-xs font-medium text-cyan-600 bg-cyan-50 px-2 py-0.5 rounded">{{ __('about.edu_uni_period') }}</span>
+                                        <span class="text-xs text-slate-400">{{ __('about.edu_uni_course') }}</span>
                                     </div>
                                 </div>
                                 <div class="relative pl-6 border-l-2 border-slate-200 pb-4">
                                     <div class="absolute -left-1.5 top-0 w-3 h-3 bg-slate-300 rounded-full"></div>
-                                    <h4 class="text-sm font-semibold text-slate-800">O'rta maktab</h4>
-                                    <p class="text-xs text-slate-500">Qoraqalpog'iston</p>
+                                    <h4 class="text-sm font-semibold text-slate-800">{{ __('about.edu_school_title') }}</h4>
+                                    <p class="text-xs text-slate-500">{{ __('about.edu_school_place') }}</p>
                                     <div class="flex items-center gap-2 mt-1">
-                                        <span class="text-xs text-slate-400">Umumiy o'rta ta'lim</span>
+                                        <span class="text-xs text-slate-400">{{ __('about.edu_school_desc') }}</span>
                                     </div>
                                 </div>
                             </div>

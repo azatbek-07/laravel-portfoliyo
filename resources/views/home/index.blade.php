@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Bosh sahifa - Portfoliyo')
+@section('title', __('meta.home_title'))
 
 @section('content')
 
@@ -20,7 +20,7 @@
                             <polyline points="16 18 22 12 16 6" />
                             <polyline points="8 6 2 12 8 18" />
                         </svg>
-                        Full Stack Developer
+                        {{ __('home.role') }}
                     </span>
                 </div>
 
@@ -30,8 +30,7 @@
                 </h1>
 
                 <p class="text-lg text-slate-600 leading-relaxed max-w-lg">
-                    Sun'iy intellekt va raqamli texnologiyalar fakulteti talabasi.
-                    Samarqandda 2-kursda o'qiyman. Asli Qoraqalpog'istondanman.
+                    {{ __('home.bio') }}
                 </p>
 
                 <div class="flex items-center space-x-4 text-sm text-slate-500">
@@ -40,20 +39,20 @@
                             <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
                             <circle cx="12" cy="10" r="3" />
                         </svg>
-                        Samarqand, O'zbekiston
+                        {{ __('home.location') }}
                     </span>
                 </div>
 
                 <div class="flex flex-wrap gap-3 pt-2">
                     <a href="{{ route('projects') }}" class="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-sm font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/30 transition-all hover:-translate-y-0.5 inline-flex items-center">
-                        Loyihalarim
+                        {{ __('home.my_projects') }}
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ml-2">
                             <path d="M5 12h14" />
                             <path d="m12 5 7 7-7 7" />
                         </svg>
                     </a>
-                    <a href="{{route('about')}}" class="px-6 py-3 bg-white/80 backdrop-blur-sm border border-slate-200/60 text-slate-700 text-sm font-semibold rounded-xl hover:border-cyan-400 hover:text-cyan-600 hover:shadow-lg transition-all hover:-translate-y-0.5 inline-flex items-center">
-                        Men haqimda
+                    <a href="{{ route('about') }}" class="px-6 py-3 bg-white/80 backdrop-blur-sm border border-slate-200/60 text-slate-700 text-sm font-semibold rounded-xl hover:border-cyan-400 hover:text-cyan-600 hover:shadow-lg transition-all hover:-translate-y-0.5 inline-flex items-center">
+                        {{ __('home.about_me') }}
                     </a>
                 </div>
 
@@ -98,14 +97,14 @@
 
                     {{-- Talaba --}}
                     <div class="absolute -top-4 -right-2 sm:-right-4 bg-white/90 backdrop-blur-sm border border-slate-200/60 rounded-xl px-4 py-3 shadow-xl">
-                        <p class="text-xs text-slate-400 font-medium">Talaba</p>
-                        <p class="text-lg font-extrabold text-slate-800">2-kurs</p>
+                        <p class="text-xs text-slate-400 font-medium">{{ __('home.student') }}</p>
+                        <p class="text-lg font-extrabold text-slate-800">{{ __('home.year') }}</p>
                     </div>
 
                     {{-- Universitet --}}
                     <div class="absolute -bottom-4 -left-2 sm:-left-4 bg-white/90 backdrop-blur-sm border border-slate-200/60 rounded-xl px-4 py-3 shadow-xl">
-                        <p class="text-xs text-slate-400 font-medium">Universitet</p>
-                        <p class="text-sm font-bold text-slate-800">SamDU</p>
+                        <p class="text-xs text-slate-400 font-medium">{{ __('home.university') }}</p>
+                        <p class="text-sm font-bold text-slate-800">{{ __('home.samdu') }}</p>
                     </div>
 
                     {{-- Dekorativ nuqtalar --}}

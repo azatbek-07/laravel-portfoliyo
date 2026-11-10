@@ -27,16 +27,16 @@ class ContactController extends Controller
             . "📌 Mavzu: {$request->subject}\n\n"
             . "💬 Xabar:\n{$request->message}";
 
-        Http::withoutVerifying()->post(
-            'https://api.telegram.org/bot' . env('TELEGRAM_BOT_TOKEN') . '/sendMessage',
-            [
-                'chat_id' => env('TELEGRAM_CHAT_ID'),
-                'text' => $text,
-            ]
-        );
+        
+        $response = Http::post(
+    'https://api.telegram.org/bot' . config('services.telegram.bot_token') . '/sendMessage',
+    [
+        'chat_id' => config('services.telegram.chat_id'),
+        'text' => $text,
+    ]
+);
         return back()->with(
             'success',
-            'Xabaringiz muvaffaqiyatli yuborildi!'
+            __('contact.success')
         );
-    }
-}
+    }}

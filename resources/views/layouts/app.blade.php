@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="{{ app()->getLocale() }}">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Azatbek Ermalaev | Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <title>@yield('title', __('meta.title'))</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     @if (file_exists(public_path('hot')) || file_exists(public_path('build/manifest.json')))
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @endif
@@ -210,6 +210,15 @@
 
 <body class="bg-white text-gray-800">
 
+    @php
+        $currentLocale = app()->getLocale();
+        $locales = [
+            'uz' => ['label' => "O'Z", 'flag' => '🇺🇿', 'name' => "O'zbekcha"],
+            'ru' => ['label' => 'РУ', 'flag' => '🇷🇺', 'name' => 'Русский'],
+            'en' => ['label' => 'EN', 'flag' => '🇬🇧', 'name' => 'English'],
+        ];
+    @endphp
+
     <nav class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-cyan/10">
 
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
@@ -223,37 +232,58 @@
                 </a>
 
                 {{-- DESKTOP MENU --}}
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden md:flex items-center space-x-7">
 
                     <a href="{{ route('home') }}"
                         class="nav-link {{ request()->routeIs('home') ? 'active text-cyan' : 'text-gray-600' }} text-sm font-semibold">
-                        Asosiy
+                        {{ __('nav.home') }}
                     </a>
 
                     <a href="{{ route('about') }}"
                         class="nav-link {{ request()->routeIs('about') ? 'active text-cyan' : 'text-gray-600' }} text-sm font-medium">
-                        Men haqimda
+                        {{ __('nav.about') }}
                     </a>
 
                     <a href="{{ route('projects') }}"
                         class="nav-link {{ request()->routeIs('projects') ? 'active text-cyan' : 'text-gray-600' }} text-sm font-medium">
-                        Loyihalar
+                        {{ __('nav.projects') }}
                     </a>
 
-                    <a href="{{ route('contact') }}" class="ml-2 px-5 py-2 btn-cyan text-sm font-semibold rounded-lg">
-                        Aloqa
+                    {{-- LANGUAGE SWITCHER (DESKTOP) --}}
+                    <div class="inline-flex items-center bg-slate-100/90 border border-slate-200/80 rounded-xl p-1 gap-0.5">
+                        @foreach ($locales as $code => $lang)
+                            <a href="{{ route('lang.switch', $code) }}"
+                                title="{{ $lang['name'] }}"
+                                class="px-2.5 py-1 rounded-lg text-xs font-bold transition-all duration-200 flex items-center gap-1 {{ $currentLocale === $code ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-sm' : 'text-slate-600 hover:text-cyan-600 hover:bg-white/60' }}">
+                                <span>{{ $lang['flag'] }}</span>
+                                <span>{{ $lang['label'] }}</span>
+                            </a>
+                        @endforeach
+                    </div>
+
+                    <a href="{{ route('contact') }}" class="px-5 py-2 btn-cyan text-sm font-semibold rounded-lg">
+                        {{ __('nav.contact') }}
                     </a>
 
                 </div>
 
-                {{-- MOBILE TOGGLE --}}
-                <button id="menu-btn" type="button"
-                    class="md:hidden flex items-center justify-center w-10 h-10 text-gray-700 hover:text-cyan transition"
-                    aria-label="Menu" aria-expanded="false">
+                {{-- MOBILE CONTROLS (LANG + TOGGLE) --}}
+                <div class="flex md:hidden items-center gap-2">
+                    <div class="inline-flex items-center bg-slate-100 border border-slate-200/80 rounded-lg p-0.5">
+                        @foreach ($locales as $code => $lang)
+                            <a href="{{ route('lang.switch', $code) }}"
+                                class="px-2 py-1 rounded-md text-[11px] font-bold transition-all {{ $currentLocale === $code ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-sm' : 'text-slate-600' }}">
+                                {{ $lang['label'] }}
+                            </a>
+                        @endforeach
+                    </div>
 
-                    <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
-
-                </button>
+                    <button id="menu-btn" type="button"
+                        class="flex items-center justify-center w-10 h-10 text-gray-700 hover:text-cyan transition"
+                        aria-label="Menu" aria-expanded="false">
+                        <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+                    </button>
+                </div>
 
             </div>
 
@@ -266,22 +296,22 @@
 
                 <a href="{{ route('home') }}" class="block py-3 px-3 rounded-lg text-sm font-semibold
                 {{ request()->routeIs('home') ? 'bg-cyan/10 text-cyan' : 'text-gray-600' }}">
-                    Asosiy
+                    {{ __('nav.home') }}
                 </a>
 
                 <a href="{{ route('about') }}" class="block py-3 px-3 rounded-lg text-sm font-medium
                 {{ request()->routeIs('about') ? 'bg-cyan/10 text-cyan' : 'text-gray-600' }}">
-                    Men haqimda
+                    {{ __('nav.about') }}
                 </a>
 
                 <a href="{{ route('projects') }}" class="block py-3 px-3 rounded-lg text-sm font-medium
                 {{ request()->routeIs('projects') ? 'bg-cyan/10 text-cyan' : 'text-gray-600' }}">
-                    Loyihalar
+                    {{ __('nav.projects') }}
                 </a>
 
                 <a href="{{ route('contact') }}" class="block py-3 px-3 rounded-lg text-sm font-semibold
                 {{ request()->routeIs('contact') ? 'bg-cyan/10 text-cyan' : 'text-cyan' }}">
-                    Aloqa
+                    {{ __('nav.contact') }}
                 </a>
 
             </div>
@@ -290,8 +320,10 @@
 
     </nav>
     @if(session('success'))
-        <div class="mx-auto mt-4 max-w-7xl rounded-lg bg-green-100 px-4 py-3 text-green-700">
-            {{ session('success') }}
+        <div class="mx-auto mt-20 max-w-6xl px-6 lg:px-8">
+            <div class="rounded-xl bg-emerald-50 border border-emerald-200 px-4 py-3 text-emerald-700 text-sm font-medium shadow-sm">
+                {{ session('success') }}
+            </div>
         </div>
     @endif
 
@@ -309,49 +341,44 @@
                         <span class="text-cyan">E</span>
                     </div>
                     <p class="text-sm text-gray-400 leading-relaxed max-w-xs">
-                        Full Stack dasturchi. Sun'iy intellekt va raqamli texnologiyalar yo'nalishida.
+                        {{ __('footer.bio') }}
                     </p>
                 </div>
 
                 <div>
-                    <h4 class="text-xs font-semibold text-cyan uppercase tracking-wider mb-5">Sahifalar</h4>
+                    <h4 class="text-xs font-semibold text-cyan uppercase tracking-wider mb-5">{{ __('footer.pages') }}</h4>
                     <ul class="space-y-3">
-                        <li><a href="/"
-                                class="footer-link-cyan text-sm text-gray-400 hover:text-cyan transition-colors">Asosiy
-                                sahifa</a></li>
-                        <li><a href="{{route('about')}}"
-                                class="footer-link-cyan text-sm text-gray-400 hover:text-cyan transition-colors">Men
-                                haqimda</a></li>
+                        <li><a href="{{ route('home') }}"
+                                class="footer-link-cyan text-sm text-gray-400 hover:text-cyan transition-colors">{{ __('footer.home_page') }}</a></li>
+                        <li><a href="{{ route('about') }}"
+                                class="footer-link-cyan text-sm text-gray-400 hover:text-cyan transition-colors">{{ __('footer.about') }}</a></li>
                         <li><a href="{{ route('projects') }}"
-                                class="footer-link-cyan text-sm text-gray-400 hover:text-cyan transition-colors">Loyihalarim</a>
+                                class="footer-link-cyan text-sm text-gray-400 hover:text-cyan transition-colors">{{ __('footer.my_projects') }}</a>
                         </li>
-                        <li><a href="{{route('contact')}}"
-                                class="footer-link-cyan text-sm text-gray-400 hover:text-cyan transition-colors">Aloqa</a>
+                        <li><a href="{{ route('contact') }}"
+                                class="footer-link-cyan text-sm text-gray-400 hover:text-cyan transition-colors">{{ __('footer.contact') }}</a>
                         </li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="text-xs font-semibold text-cyan uppercase tracking-wider mb-5">Bog'lanish</h4>
+                    <h4 class="text-xs font-semibold text-cyan uppercase tracking-wider mb-5">{{ __('footer.connect') }}</h4>
                     <ul class="space-y-3">
                         <li>
                             <a href="https://t.me/A_z_a_t_b_e_k" target="_blank"
                                 class="footer-link-cyan flex items-center space-x-2 text-sm text-gray-400 hover:text-cyan transition-colors">
-                                <i class="fab fa-telegram-plane text-cyan text-base"></i>
                                 <span>@A_z_a_t_b_e_k</span>
                             </a>
                         </li>
                         <li>
                             <a href="https://instagram.com/ermalaev_azatbek" target="_blank"
                                 class="footer-link-cyan flex items-center space-x-2 text-sm text-gray-400 hover:text-cyan transition-colors">
-                                <i class="fab fa-instagram text-cyan text-base"></i>
                                 <span>ermalaev_azatbek</span>
                             </a>
                         </li>
                         <li>
                             <a href="https://github.com/azatbek-07" target="_blank"
                                 class="footer-link-cyan flex items-center space-x-2 text-sm text-gray-400 hover:text-cyan transition-colors">
-                                <i class="fab fa-github text-gray-400 text-base"></i>
                                 <span>azatbek-07</span>
                             </a>
                         </li>
@@ -361,13 +388,12 @@
 
             <div
                 class="mt-12 pt-8 border-t border-cyan/10 flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
-                <p class="text-xs text-gray-500">© 2024 Azatbek Ermalaev</p>
+                <p class="text-xs text-gray-500">© {{ date('Y') }} Azatbek Ermalaev. {{ __('footer.rights') }}</p>
                 <div class="flex items-center space-x-6 text-xs text-gray-500">
-                    <a href="{{route('about')}}" class="footer-link-cyan hover:text-cyan transition-colors">Men
-                        haqimda</a>
+                    <a href="{{ route('about') }}" class="footer-link-cyan hover:text-cyan transition-colors">{{ __('nav.about') }}</a>
                     <a href="{{ route('projects') }}"
-                        class="footer-link-cyan hover:text-cyan transition-colors">Loyihalar</a>
-                    <a href="{{route('contact')}}" class="footer-link-cyan hover:text-cyan transition-colors">Aloqa</a>
+                        class="footer-link-cyan hover:text-cyan transition-colors">{{ __('nav.projects') }}</a>
+                    <a href="{{ route('contact') }}" class="footer-link-cyan hover:text-cyan transition-colors">{{ __('nav.contact') }}</a>
                 </div>
             </div>
         </div>
@@ -375,54 +401,32 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-
-            // ==============================
-            // MOBILE MENU
-            // ==============================
-
             const menuBtn = document.getElementById('menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
 
-            // Agar elementlar mavjud bo'lsa
             if (menuBtn && mobileMenu) {
-
-                // Menu ochish / yopish
                 menuBtn.addEventListener('click', () => {
                     mobileMenu.classList.toggle('hidden');
                 });
 
-                // Menu ichidagi link bosilganda yopish
                 const mobileLinks = mobileMenu.querySelectorAll('a');
-
                 mobileLinks.forEach(link => {
                     link.addEventListener('click', () => {
                         mobileMenu.classList.add('hidden');
                     });
                 });
-
             }
 
-
-            // ==============================
-            // NAVBAR SCROLL EFFECT
-            // ==============================
-
             const nav = document.querySelector('nav');
-
             if (nav) {
-
                 window.addEventListener('scroll', () => {
-
                     if (window.scrollY > 50) {
                         nav.classList.add('shadow-lg');
                     } else {
                         nav.classList.remove('shadow-lg');
                     }
-
                 });
-
             }
-
         });
     </script>
 </body>

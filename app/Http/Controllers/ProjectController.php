@@ -7,10 +7,20 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $projects = Project::latest()->paginate(4);
+        $statusFilter = $request->query('status');
 
-        return view('projects.index', compact('projects'));
+        $query = Project::latest();
+
+        if ($statusFilter === 'completed') {
+            $query->where('status', 'Yakunlangan');
+        } elseif ($statusFilter === 'in_progress') {
+            $query->where('status', 'Ishlab chiqilmoqda');
+        }
+
+        $projects = $query->paginate(4)->withQueryString();
+
+        return view('projects.index', compact('projects', 'statusFilter'));
     }
 }

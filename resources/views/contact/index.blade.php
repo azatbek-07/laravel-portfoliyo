@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Contact Sahifa - Portfoliyo')
+@section('title', __('meta.contact_title'))
 
 @section('content')
     <!-- Contact Content -->
@@ -20,17 +20,15 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1">
                                 <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
                             </svg>
-                            Bog'lanish
+                            {{ __('contact.badge') }}
                         </span>
                         <h1 class="text-4xl md:text-5xl font-extrabold text-slate-800 mb-4">
-                            <span class="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">Aloqa</span>
+                            <span class="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">{{ __('contact.title') }}</span>
                         </h1>
                         <p class="text-slate-500 text-lg max-w-2xl mx-auto lg:mx-0">
-                            Men bilan bog'lanmoqchi bo'lsangiz, quyidagi manzillar orqali murojaat qiling.
-                            Loyihalar, hamkorlik yoki savollar uchun doim ochiqman.
+                            {{ __('contact.subtitle') }}
                         </p>
                     </div>
-                    
                 </div>
                 <div class="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mt-4 mx-auto lg:mx-0"></div>
             </div>
@@ -97,8 +95,8 @@
                             </svg>
                         </div>
                         <div class="flex-1 min-w-0">
-                            <p class="text-xs text-slate-400 uppercase tracking-wider">Manzil</p>
-                            <p class="text-sm font-semibold text-slate-800">Samarqand, O'zbekiston</p>
+                            <p class="text-xs text-slate-400 uppercase tracking-wider">{{ __('contact.address_label') }}</p>
+                            <p class="text-sm font-semibold text-slate-800">{{ __('contact.address_value') }}</p>
                         </div>
                     </div>
 
@@ -110,8 +108,8 @@
                             </svg>
                         </div>
                         <div class="flex-1 min-w-0">
-                            <p class="text-xs text-slate-400 uppercase tracking-wider">Universitet</p>
-                            <p class="text-sm font-semibold text-slate-800">SamDU • 2-kurs</p>
+                            <p class="text-xs text-slate-400 uppercase tracking-wider">{{ __('contact.university_label') }}</p>
+                            <p class="text-sm font-semibold text-slate-800">{{ __('contact.university_value') }}</p>
                         </div>
                     </div>
 
@@ -123,8 +121,8 @@
                             </svg>
                         </div>
                         <div class="flex-1 min-w-0">
-                            <p class="text-xs text-slate-400 uppercase tracking-wider">Ish vaqti</p>
-                            <p class="text-sm font-semibold text-slate-800">24/7 Online</p>
+                            <p class="text-xs text-slate-400 uppercase tracking-wider">{{ __('contact.hours_label') }}</p>
+                            <p class="text-sm font-semibold text-slate-800">{{ __('contact.hours_value') }}</p>
                         </div>
                     </div>
                 </div>
@@ -137,9 +135,9 @@
                                 <path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4Z"/>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold text-slate-800 mb-2">Xabar yuborish</h3>
+                        <h3 class="text-2xl font-bold text-slate-800 mb-2">{{ __('contact.form_title') }}</h3>
                         <p class="text-sm text-slate-500 mb-8">
-                            Savollaringiz yoki takliflaringiz bo'lsa, bemalol yozing. Tez orada javob beraman.
+                            {{ __('contact.form_subtitle') }}
                         </p>
 
                         <form class="space-y-5" action="{{ route('contact.send') }}" method="POST">
@@ -150,9 +148,9 @@
                                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline mr-1.5 text-cyan-500">
                                             <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
                                         </svg>
-                                        Ismingiz
+                                        {{ __('contact.name_label') }}
                                     </label>
-                                    <input type="text" name="name" placeholder="Azatbek" required
+                                    <input type="text" name="name" placeholder="{{ __('contact.name_placeholder') }}" required
                                         class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all placeholder:text-slate-400">
                                 </div>
 
@@ -161,9 +159,9 @@
                                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline mr-1.5 text-cyan-500">
                                             <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
                                         </svg>
-                                        Email
+                                        {{ __('contact.email_label') }}
                                     </label>
-                                    <input type="email" name="email" placeholder="azatbek@example.com" required
+                                    <input type="email" name="email" placeholder="{{ __('contact.email_placeholder') }}" required
                                         class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all placeholder:text-slate-400">
                                 </div>
                             </div>
@@ -173,9 +171,9 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline mr-1.5 text-cyan-500">
                                         <path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><path d="M7 7h.01"/>
                                     </svg>
-                                    Mavzu
+                                    {{ __('contact.subject_label') }}
                                 </label>
-                                <input type="text" name="subject" placeholder="Loyiha taklifi" required
+                                <input type="text" name="subject" placeholder="{{ __('contact.subject_placeholder') }}" required
                                     class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all placeholder:text-slate-400">
                             </div>
 
@@ -184,9 +182,9 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline mr-1.5 text-cyan-500">
                                         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                                     </svg>
-                                    Xabar
+                                    {{ __('contact.message_label') }}
                                 </label>
-                                <textarea name="message" rows="5" placeholder="Xabaringizni bu yerga yozing..." required
+                                <textarea name="message" rows="5" placeholder="{{ __('contact.message_placeholder') }}" required
                                     class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all resize-none placeholder:text-slate-400"></textarea>
                             </div>
 
@@ -195,14 +193,14 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4Z"/>
                                 </svg>
-                                <span>Yuborish</span>
+                                <span>{{ __('contact.submit') }}</span>
                             </button>
 
                             <p class="text-xs text-slate-400 text-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline mr-1">
                                     <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                                 </svg>
-                                Ma'lumotlaringiz xavfsiz saqlanadi
+                                {{ __('contact.privacy') }}
                             </p>
                         </form>
                     </div>
