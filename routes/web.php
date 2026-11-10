@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 // Language switcher
 Route::get('/lang/{locale}', function (string $locale) {
-    if (in_array($locale, ['uz', 'ru', 'en'], true)) {
+    if (in_array($locale, ['uz', 'kaa', 'ru', 'en'], true)) {
         session(['locale' => $locale]);
     }
     return redirect()->back();

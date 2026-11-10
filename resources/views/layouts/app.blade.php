@@ -213,9 +213,10 @@
     @php
         $currentLocale = app()->getLocale();
         $locales = [
-            'uz' => ['label' => "O'Z", 'flag' => '🇺🇿', 'name' => "O'zbekcha"],
-            'ru' => ['label' => 'РУ', 'flag' => '🇷🇺', 'name' => 'Русский'],
-            'en' => ['label' => 'EN', 'flag' => '🇬🇧', 'name' => 'English'],
+            'uz'  => ['label' => "O'Z", 'flag' => '🇺🇿', 'name' => "O'zbekcha"],
+            'kaa' => ['label' => 'QQ',  'flag' => '🏛️', 'name' => 'Qaraqalpaqsha'],
+            'ru'  => ['label' => 'РУ',  'flag' => '🇷🇺', 'name' => 'Русский'],
+            'en'  => ['label' => 'EN',  'flag' => '🇬🇧', 'name' => 'English'],
         ];
     @endphp
 

@@ -13,7 +13,7 @@ class SetLocale
     {
         $locale = session('locale', 'uz');
 
-        if (!in_array($locale, ['uz', 'ru', 'en'], true)) {
+        if (!in_array($locale, ['uz', 'kaa', 'ru', 'en'], true)) {
             $locale = 'uz';
         }
 
