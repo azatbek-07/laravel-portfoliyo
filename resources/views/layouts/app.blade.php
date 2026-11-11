@@ -213,10 +213,10 @@
     @php
         $currentLocale = app()->getLocale();
         $locales = [
-            'uz'  => ['label' => "O'Z", 'flag' => '🇺🇿', 'name' => "O'zbekcha"],
-            'kaa' => ['label' => 'QQ',  'flag' => '🏛️', 'name' => 'Qaraqalpaqsha'],
-            'ru'  => ['label' => 'РУ',  'flag' => '🇷🇺', 'name' => 'Русский'],
-            'en'  => ['label' => 'EN',  'flag' => '🇬🇧', 'name' => 'English'],
+            'uz'  => ['label' => "O'Z", 'flag' => 'images/flags/uz.svg',  'name' => "O'zbekcha"],
+            'kaa' => ['label' => 'QQ',  'flag' => 'images/flags/kaa.svg', 'name' => 'Qaraqalpaqsha'],
+            'ru'  => ['label' => 'РУ',  'flag' => 'images/flags/ru.svg',  'name' => 'Русский'],
+            'en'  => ['label' => 'EN',  'flag' => 'images/flags/en.svg',  'name' => 'English'],
         ];
     @endphp
 
@@ -257,7 +257,7 @@
                     <div class="relative lang-dropdown">
                         <button type="button"
                             class="lang-dropdown-btn inline-flex items-center gap-2 px-3.5 py-2 bg-slate-50 hover:bg-cyan-50/60 border border-slate-200 hover:border-cyan-400 rounded-xl text-xs font-semibold text-slate-700 transition-all shadow-sm cursor-pointer">
-                            <span class="text-sm leading-none">{{ $activeLang['flag'] }}</span>
+                            <img src="{{ asset($activeLang['flag']) }}" alt="{{ $activeLang['name'] }}" class="w-5 h-3.5 rounded-xs object-cover border border-slate-200/80 shrink-0" />
                             <span>{{ $activeLang['name'] }}</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lang-chevron text-slate-400 transition-transform duration-200">
                                 <path d="m6 9 6 6 6-6"/>
@@ -270,7 +270,7 @@
                                     <a href="{{ route('lang.switch', $code) }}"
                                         class="flex items-center justify-between px-3.5 py-2.5 text-xs font-medium text-slate-700 hover:bg-cyan-50/70 hover:text-cyan-600 transition-colors">
                                         <span class="flex items-center gap-2.5">
-                                            <span class="text-sm leading-none">{{ $lang['flag'] }}</span>
+                                            <img src="{{ asset($lang['flag']) }}" alt="{{ $lang['name'] }}" class="w-5 h-3.5 rounded-xs object-cover border border-slate-200/80 shrink-0" />
                                             <span>{{ $lang['name'] }}</span>
                                         </span>
                                     </a>
@@ -290,7 +290,7 @@
                     <div class="relative lang-dropdown">
                         <button type="button"
                             class="lang-dropdown-btn inline-flex items-center gap-1.5 px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-semibold text-slate-700 shadow-sm">
-                            <span>{{ $activeLang['flag'] }}</span>
+                            <img src="{{ asset($activeLang['flag']) }}" alt="{{ $activeLang['name'] }}" class="w-4 h-3 rounded-xs object-cover border border-slate-200/80 shrink-0" />
                             <span>{{ $activeLang['label'] }}</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lang-chevron text-slate-400 transition-transform duration-200">
                                 <path d="m6 9 6 6 6-6"/>
@@ -303,7 +303,7 @@
                                     <a href="{{ route('lang.switch', $code) }}"
                                         class="flex items-center justify-between px-3 py-2 text-xs font-medium text-slate-700 hover:bg-cyan-50/70 hover:text-cyan-600 transition-colors">
                                         <span class="flex items-center gap-2">
-                                            <span>{{ $lang['flag'] }}</span>
+                                            <img src="{{ asset($lang['flag']) }}" alt="{{ $lang['name'] }}" class="w-4 h-3 rounded-xs object-cover border border-slate-200/80 shrink-0" />
                                             <span>{{ $lang['name'] }}</span>
                                         </span>
                                     </a>
