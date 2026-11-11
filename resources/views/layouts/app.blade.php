@@ -8,6 +8,16 @@
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}?v=2" />
     <link rel="icon" type="image/png" sizes="64x64" href="{{ asset('favicon.png') }}?v=2" />
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}?v=2" />
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        })();
+    </script>
     @if (file_exists(public_path('hot')) || file_exists(public_path('build/manifest.json')))
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @endif
@@ -207,6 +217,126 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #00b8d4;
         }
+
+        /* ========================================== */
+        /* DARK MODE OVERRIDES (html.dark)            */
+        /* ========================================== */
+        html.dark body {
+            background-color: #0a192f !important;
+            color: #e2e8f0 !important;
+        }
+
+        html.dark nav {
+            background-color: rgba(10, 25, 47, 0.92) !important;
+            border-color: rgba(0, 212, 255, 0.15) !important;
+        }
+
+        html.dark #mobile-menu {
+            background-color: #0f213c !important;
+            border-color: rgba(0, 212, 255, 0.15) !important;
+        }
+
+        html.dark .text-navy {
+            color: #ffffff !important;
+        }
+
+        html.dark footer .text-navy {
+            color: #0a192f !important;
+        }
+
+        html.dark main section {
+            background-image: linear-gradient(to bottom right, #0a192f, #0f172a, #112240) !important;
+        }
+
+        /* Cards & Containers in Dark Mode */
+        html.dark main .bg-white,
+        html.dark main .bg-white\/90,
+        html.dark main .bg-white\/80 {
+            background-color: rgba(17, 34, 64, 0.88) !important;
+            border-color: rgba(51, 65, 85, 0.7) !important;
+            box-shadow: 0 15px 30px -10px rgba(2, 6, 23, 0.6) !important;
+        }
+
+        html.dark main .bg-white\/40 {
+            background-color: rgba(17, 34, 64, 0.45) !important;
+            border-color: rgba(71, 85, 105, 0.6) !important;
+        }
+
+        /* Dropdowns & Buttons in Navbar */
+        html.dark .lang-dropdown-btn,
+        html.dark .theme-toggle-btn {
+            background-color: #112240 !important;
+            border-color: #1e3a5f !important;
+            color: #e2e8f0 !important;
+        }
+
+        html.dark .lang-dropdown-menu {
+            background-color: #112240 !important;
+            border-color: #1e3a5f !important;
+            box-shadow: 0 20px 25px -5px rgba(2, 6, 23, 0.7) !important;
+        }
+
+        html.dark .lang-dropdown-menu a {
+            color: #cbd5e1 !important;
+        }
+
+        html.dark .lang-dropdown-menu a:hover {
+            background-color: rgba(0, 212, 255, 0.12) !important;
+            color: #00d4ff !important;
+        }
+
+        /* Typography in Dark Mode */
+        html.dark .text-slate-800,
+        html.dark .text-gray-800 {
+            color: #f8fafc !important;
+        }
+
+        html.dark .text-slate-700,
+        html.dark .text-gray-700 {
+            color: #e2e8f0 !important;
+        }
+
+        html.dark .text-slate-600,
+        html.dark .text-gray-600 {
+            color: #94a3b8 !important;
+        }
+
+        html.dark .text-slate-500 {
+            color: #94a3b8 !important;
+        }
+
+        html.dark .nav-link.active {
+            color: #00d4ff !important;
+        }
+
+        /* Subtle backgrounds, tags, inputs, progress bars */
+        html.dark main .bg-slate-50 {
+            background-color: #0a192f !important;
+            border-color: #1e3a5f !important;
+            color: #f1f5f9 !important;
+        }
+
+        html.dark main .bg-slate-100 {
+            background-color: #1e293b !important;
+            color: #e2e8f0 !important;
+        }
+
+        html.dark main .border-slate-100,
+        html.dark main .border-slate-200 {
+            border-color: #1e293b !important;
+        }
+
+        html.dark main .bg-cyan-50,
+        html.dark main .bg-cyan-50\/80 {
+            background-color: rgba(0, 212, 255, 0.12) !important;
+            border-color: rgba(0, 212, 255, 0.25) !important;
+            color: #38bdf8 !important;
+        }
+
+        html.dark main .from-cyan-50.to-blue-50 {
+            background-image: linear-gradient(to right, rgba(6, 182, 212, 0.12), rgba(37, 99, 235, 0.12)) !important;
+            border-color: rgba(6, 182, 212, 0.25) !important;
+        }
     </style>
 </head>
 
@@ -286,14 +416,34 @@
                         </div>
                     </div>
 
+                    {{-- THEME TOGGLE (DESKTOP) --}}
+                    <button type="button" onclick="toggleTheme()" aria-label="Toggle theme"
+                        class="theme-toggle-btn w-9 h-9 inline-flex items-center justify-center rounded-xl bg-slate-50 hover:bg-cyan-50/60 border border-slate-200 hover:border-cyan-400 text-slate-700 transition-all shadow-sm cursor-pointer">
+                        <svg class="theme-icon-sun hidden w-4 h-4 text-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+                        </svg>
+                        <svg class="theme-icon-moon w-4 h-4 text-slate-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                        </svg>
+                    </button>
+
                     <a href="{{ route('contact') }}" class="px-5 py-2 btn-cyan text-sm font-semibold rounded-lg">
                         {{ __('nav.contact') }}
                     </a>
 
                 </div>
 
-                {{-- MOBILE CONTROLS (LANG DROPDOWN + TOGGLE) --}}
+                {{-- MOBILE CONTROLS (THEME + LANG DROPDOWN + TOGGLE) --}}
                 <div class="flex md:hidden items-center gap-2">
+                    <button type="button" onclick="toggleTheme()" aria-label="Toggle theme"
+                        class="theme-toggle-btn w-8 h-8 inline-flex items-center justify-center rounded-lg bg-slate-50 border border-slate-200 text-slate-700 shadow-sm">
+                        <svg class="theme-icon-sun hidden w-4 h-4 text-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+                        </svg>
+                        <svg class="theme-icon-moon w-4 h-4 text-slate-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                        </svg>
+                    </button>
                     <div class="relative lang-dropdown">
                         <button type="button"
                             class="lang-dropdown-btn inline-flex items-center gap-1.5 px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-semibold text-slate-700 shadow-sm">
@@ -449,7 +599,20 @@
     </footer>
 
     <script>
+        function syncThemeIcons() {
+            const isDark = document.documentElement.classList.contains('dark');
+            document.querySelectorAll('.theme-icon-sun').forEach(el => el.classList.toggle('hidden', !isDark));
+            document.querySelectorAll('.theme-icon-moon').forEach(el => el.classList.toggle('hidden', isDark));
+        }
+
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            syncThemeIcons();
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
+            syncThemeIcons();
             const menuBtn = document.getElementById('menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
 
