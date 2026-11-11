@@ -20,7 +20,7 @@
         {{-- HEADER --}}
         {{-- ========================= --}}
 
-        <div class="mb-16 text-center lg:text-left">
+        <div class="mb-14 text-center lg:text-left">
 
             <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between">
 
@@ -61,21 +61,36 @@
         <div class="flex flex-wrap gap-3 mb-10 justify-center lg:justify-start">
 
             <a href="{{ route('projects') }}"
-                class="px-5 py-2 text-sm font-semibold rounded-full transition-all hover:-translate-y-0.5 {{ !$activeFilter ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40' : 'bg-white/80 backdrop-blur-sm border border-slate-200/60 text-slate-600 hover:border-cyan-400 hover:text-cyan-600' }}">
-                <i data-lucide="list" class="w-4 h-4 inline-block mr-2"></i>
-                {{ __('projects.filter_all') }}
+                class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-full transition-all hover:-translate-y-0.5 {{ !$activeFilter ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40' : 'bg-white/80 backdrop-blur-sm border border-slate-200/60 text-slate-600 hover:border-cyan-400 hover:text-cyan-600' }}">
+                <i data-lucide="list" class="w-4 h-4"></i>
+                <span>{{ __('projects.filter_all') }}</span>
+                @if(isset($counts['all']))
+                    <span class="px-2 py-0.5 text-xs rounded-full {{ !$activeFilter ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600' }}">
+                        {{ $counts['all'] }}
+                    </span>
+                @endif
             </a>
 
             <a href="{{ route('projects', ['status' => 'completed']) }}"
-                class="px-5 py-2 text-sm font-medium rounded-full transition-all hover:-translate-y-0.5 {{ $activeFilter === 'completed' ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40' : 'bg-white/80 backdrop-blur-sm border border-slate-200/60 text-slate-600 hover:border-cyan-400 hover:text-cyan-600' }}">
-                <i data-lucide="circle-check" class="w-4 h-4 inline-block mr-2 {{ $activeFilter === 'completed' ? 'text-white' : 'text-emerald-500' }}"></i>
-                {{ __('projects.filter_completed') }}
+                class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all hover:-translate-y-0.5 {{ $activeFilter === 'completed' ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40' : 'bg-white/80 backdrop-blur-sm border border-slate-200/60 text-slate-600 hover:border-cyan-400 hover:text-cyan-600' }}">
+                <i data-lucide="circle-check" class="w-4 h-4 {{ $activeFilter === 'completed' ? 'text-white' : 'text-emerald-500' }}"></i>
+                <span>{{ __('projects.filter_completed') }}</span>
+                @if(isset($counts['completed']))
+                    <span class="px-2 py-0.5 text-xs rounded-full {{ $activeFilter === 'completed' ? 'bg-white/20 text-white' : 'bg-emerald-50 text-emerald-600' }}">
+                        {{ $counts['completed'] }}
+                    </span>
+                @endif
             </a>
 
             <a href="{{ route('projects', ['status' => 'in_progress']) }}"
-                class="px-5 py-2 text-sm font-medium rounded-full transition-all hover:-translate-y-0.5 {{ $activeFilter === 'in_progress' ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40' : 'bg-white/80 backdrop-blur-sm border border-slate-200/60 text-slate-600 hover:border-cyan-400 hover:text-cyan-600' }}">
-                <i data-lucide="clock" class="w-4 h-4 inline-block mr-2 {{ $activeFilter === 'in_progress' ? 'text-white' : 'text-amber-500' }}"></i>
-                {{ __('projects.filter_in_progress') }}
+                class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full transition-all hover:-translate-y-0.5 {{ $activeFilter === 'in_progress' ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40' : 'bg-white/80 backdrop-blur-sm border border-slate-200/60 text-slate-600 hover:border-cyan-400 hover:text-cyan-600' }}">
+                <i data-lucide="clock" class="w-4 h-4 {{ $activeFilter === 'in_progress' ? 'text-white' : 'text-amber-500' }}"></i>
+                <span>{{ __('projects.filter_in_progress') }}</span>
+                @if(isset($counts['in_progress']))
+                    <span class="px-2 py-0.5 text-xs rounded-full {{ $activeFilter === 'in_progress' ? 'bg-white/20 text-white' : 'bg-amber-50 text-amber-600' }}">
+                        {{ $counts['in_progress'] }}
+                    </span>
+                @endif
             </a>
 
         </div>
@@ -90,119 +105,134 @@
 
             @foreach ($projects as $project)
 
+            @php
+                $imagePath = public_path('images/' . $project->image);
+                $hasImage = $project->image && file_exists($imagePath);
+                $hasLiveDemo = $project->demo_active && $project->demo && $project->demo !== '#';
+                $demoHost = $hasLiveDemo ? parse_url($project->demo, PHP_URL_HOST) : null;
+            @endphp
+
             {{-- PROJECT CARD --}}
             <div
-                class="group bg-white/80 backdrop-blur-sm border border-slate-200/60 rounded-2xl overflow-hidden shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-cyan-200/30 transition-all duration-500 hover:-translate-y-2">
+                class="group flex flex-col justify-between bg-white/90 backdrop-blur-sm border border-slate-200/70 rounded-2xl overflow-hidden shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-cyan-200/40 hover:border-cyan-300/60 transition-all duration-500 hover:-translate-y-1.5">
 
-                {{-- PROJECT IMAGE --}}
-                <div class="relative h-48 overflow-hidden">
+                <div>
+                    {{-- PROJECT IMAGE --}}
+                    <div class="relative h-52 sm:h-56 overflow-hidden bg-slate-900">
 
-                    @php
-                    $imagePath = public_path('images/' . $project->image);
-                    $hasImage = $project->image && file_exists($imagePath);
-                    @endphp
+                        @if ($hasImage)
 
-                    @if ($hasImage)
+                        <img
+                            src="{{ asset('images/' . $project->image) }}"
+                            alt="{{ $project->translated_title }}"
+                            class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
 
-                    <img
-                        src="{{ asset('images/' . $project->image) }}"
-                        alt="{{ $project->translated_title }}"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/20 to-transparent"></div>
-
-                    @else
-
-                    <div
-                        class="w-full h-full bg-gradient-to-br {{ $project->gradient ?? 'from-cyan-400 to-blue-500' }} flex items-center justify-center">
-                        <i data-lucide="code-2" class="w-16 h-16 text-white"></i>
-                    </div>
-
-                    @endif
-
-                    {{-- STATUS --}}
-                    <div class="absolute top-4 right-4">
-
-                        @if ($project->status === 'Ishlab chiqilmoqda')
-
-                        <span
-                            class="inline-flex items-center px-3 py-1 bg-amber-500/90 backdrop-blur-sm text-white text-xs font-semibold rounded-full shadow-lg">
-                            <i data-lucide="loader-circle" class="w-3.5 h-3.5 mr-1.5 animate-spin"></i>
-                            {{ $project->translated_status }}
-                        </span>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/65 via-slate-900/15 to-transparent"></div>
 
                         @else
 
-                        <span
-                            class="inline-flex items-center px-3 py-1 bg-emerald-500/90 backdrop-blur-sm text-white text-xs font-semibold rounded-full shadow-lg">
-                            <i data-lucide="circle" class="w-3.5 h-3.5 mr-1.5 fill-current"></i>
-                            {{ $project->translated_status }}
-                        </span>
+                        <div
+                            class="w-full h-full bg-gradient-to-br {{ $project->gradient ?? 'from-cyan-400 to-blue-500' }} flex items-center justify-center">
+                            <i data-lucide="code-2" class="w-16 h-16 text-white"></i>
+                        </div>
 
                         @endif
 
+                        {{-- LIVE DOMAIN BADGE --}}
+                        @if ($demoHost)
+                        <div class="absolute bottom-3 left-4">
+                            <a href="{{ $project->demo }}" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-900/80 hover:bg-slate-900 backdrop-blur-md text-cyan-300 text-xs font-medium rounded-full border border-white/15 shadow-md transition">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                <span>{{ $demoHost }}</span>
+                            </a>
+                        </div>
+                        @endif
+
+                        {{-- STATUS --}}
+                        <div class="absolute top-4 right-4">
+
+                            @if ($project->status === 'Ishlab chiqilmoqda')
+
+                            <span
+                                class="inline-flex items-center px-3 py-1 bg-amber-500/90 backdrop-blur-sm text-white text-xs font-semibold rounded-full shadow-lg">
+                                <i data-lucide="loader-circle" class="w-3.5 h-3.5 mr-1.5 animate-spin"></i>
+                                {{ $project->translated_status }}
+                            </span>
+
+                            @else
+
+                            <span
+                                class="inline-flex items-center px-3 py-1 bg-emerald-500/90 backdrop-blur-sm text-white text-xs font-semibold rounded-full shadow-lg">
+                                <i data-lucide="circle-check" class="w-3.5 h-3.5 mr-1.5"></i>
+                                {{ $project->translated_status }}
+                            </span>
+
+                            @endif
+
+                        </div>
+
                     </div>
 
+                    {{-- PROJECT CONTENT --}}
+                    <div class="p-6 pb-4">
+
+                        {{-- TITLE --}}
+                        <h3 class="text-xl font-bold text-slate-800 mb-2.5 group-hover:text-cyan-600 transition-colors">
+                            {{ $project->translated_title }}
+                        </h3>
+
+                        {{-- DESCRIPTION --}}
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            {{ $project->translated_description }}
+                        </p>
+
+                        {{-- TECHNOLOGIES --}}
+                        <div class="flex flex-wrap gap-2">
+                            @if (is_array($project->techs))
+                                @foreach ($project->techs as $tech)
+                                    <span class="px-3 py-1 bg-cyan-50/80 text-cyan-700 text-xs font-semibold rounded-lg border border-cyan-100">
+                                        {{ $tech }}
+                                    </span>
+                                @endforeach
+                            @endif
+                        </div>
+
+                    </div>
                 </div>
 
-                {{-- PROJECT CONTENT --}}
-                <div class="p-6">
+                {{-- BUTTONS --}}
+                <div class="px-6 pb-6 pt-2 flex gap-3">
 
-                    {{-- TITLE --}}
-                    <h3 class="text-xl font-bold text-slate-800 mb-2 group-hover:text-cyan-600 transition-colors">
-                        {{ $project->translated_title }}
-                    </h3>
+                    {{-- GITHUB --}}
+                    @if ($project->github)
+                    <a
+                        href="{{ $project->github }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-100 text-slate-700 text-sm font-semibold rounded-xl hover:bg-slate-800 hover:text-white transition-all text-center">
+                        <i data-lucide="github" class="w-4 h-4"></i>
+                        <span>{{ __('projects.code') }}</span>
+                    </a>
+                    @endif
 
-                    {{-- DESCRIPTION --}}
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                        {{ $project->translated_description }}
-                    </p>
-
-                    {{-- TECHNOLOGIES --}}
-                    <div class="flex flex-wrap gap-2 mb-5">
-                        @if (is_array($project->techs))
-                            @foreach ($project->techs as $tech)
-                                <span class="px-3 py-1 bg-cyan-50 text-cyan-600 text-xs font-semibold rounded-lg border border-cyan-100">
-                                    {{ $tech }}
-                                </span>
-                            @endforeach
-                        @endif
-                    </div>
-
-                    {{-- BUTTONS --}}
-                    <div class="flex gap-3">
-
-                        {{-- GITHUB --}}
-                        @if ($project->github)
-                        <a
-                            href="{{ $project->github }}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="flex-1 px-4 py-2.5 bg-slate-100 text-slate-700 text-sm font-medium rounded-xl hover:bg-cyan-50 hover:text-cyan-600 transition-all text-center">
-                            <i data-lucide="github" class="w-4 h-4 inline-block mr-2"></i>
-                            {{ __('projects.code') }}
-                        </a>
-                        @endif
-
-                        {{-- DEMO --}}
-                        @if ($project->demo_active && $project->demo)
-                        <a
-                            href="{{ $project->demo }}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="flex-1 px-4 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-sm font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/30 transition-all text-center">
-                            <i data-lucide="external-link" class="w-4 h-4 inline-block mr-2"></i>
-                            {{ __('projects.demo') }}
-                        </a>
-                        @else
-                        <span
-                            class="flex-1 px-4 py-2.5 bg-slate-100 text-slate-500 text-sm font-medium rounded-xl text-center border border-slate-200">
-                            <i data-lucide="clock" class="w-4 h-4 inline-block mr-2"></i>
-                            {{ __('projects.soon') }}
-                        </span>
-                        @endif
-
-                    </div>
+                    {{-- DEMO --}}
+                    @if ($hasLiveDemo)
+                    <a
+                        href="{{ $project->demo }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-sm font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/30 hover:-translate-y-0.5 transition-all text-center">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                        <span>{{ __('projects.demo') }}</span>
+                    </a>
+                    @else
+                    <span
+                        class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-50 text-slate-400 text-sm font-medium rounded-xl text-center border border-slate-200/80">
+                        <i data-lucide="clock" class="w-4 h-4"></i>
+                        <span>{{ __('projects.soon') }}</span>
+                    </span>
+                    @endif
 
                 </div>
 
@@ -287,17 +317,17 @@
         {{-- ========================= --}}
 
         <div class="mt-12">
-            <div class="group border-2 border-dashed border-slate-300/50 hover:border-cyan-400 rounded-2xl p-12 text-center bg-white/40 backdrop-blur-sm hover:bg-white/60 transition-all duration-300 cursor-pointer">
+            <a href="{{ route('contact') }}" class="block group border-2 border-dashed border-slate-300/60 hover:border-cyan-400 rounded-2xl p-10 text-center bg-white/40 backdrop-blur-sm hover:bg-white/70 transition-all duration-300">
                 <div class="w-16 h-16 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                     <i data-lucide="plus" class="w-8 h-8 text-cyan-600"></i>
                 </div>
-                <h3 class="text-lg font-semibold text-slate-400 group-hover:text-cyan-600 transition-colors">
+                <h3 class="text-lg font-semibold text-slate-500 group-hover:text-cyan-600 transition-colors">
                     {{ __('projects.future_title') }}
                 </h3>
                 <p class="text-sm text-slate-400 max-w-md mx-auto mt-1">
                     {{ __('projects.future_desc') }}
                 </p>
-            </div>
+            </a>
         </div>
 
     </div>

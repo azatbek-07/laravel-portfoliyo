@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="50%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#eef2ff"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="50%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#9333ea"/>
+    </linearGradient>
+    <linearGradient id="btn" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#3b82f6" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="1050" cy="120" r="220" fill="#c7d2fe" opacity="0.35"/>
+  <circle cx="150" cy="560" r="200" fill="#bfdbfe" opacity="0.35"/>
+
+  <!-- Navbar -->
+  <g transform="translate(80, 36)">
+    <rect x="0" y="0" width="44" height="44" rx="12" fill="url(#btn)"/>
+    <!-- Brain/Spark icon -->
+    <circle cx="22" cy="22" r="10" fill="none" stroke="#ffffff" stroke-width="2.5"/>
+    <path d="M18 22h8M22 18v8" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="56" y="31" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="900" fill="#0f172a">Zehn<tspan fill="#2563eb">Go</tspan></text>
+
+    <!-- Right nav buttons -->
+    <rect x="820" y="4" width="95" height="38" rx="19" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="867" y="28" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="#334155">Kirish</text>
+
+    <rect x="928" y="4" width="112" height="38" rx="19" fill="url(#btn)"/>
+    <text x="984" y="28" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Boshlash</text>
+  </g>
+
+  <!-- Active Students Badge -->
+  <g transform="translate(430, 120)">
+    <rect width="340" height="36" rx="18" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+    <circle cx="24" cy="18" r="5" fill="#10b981"/>
+    <text x="40" y="23" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="#334155">
+      <tspan fill="#2563eb" font-weight="800">Gamified</tspan> ta'lim platformasi • Online
+    </text>
+  </g>
+
+  <!-- Hero Title -->
+  <text x="600" y="225" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="60" font-weight="900" fill="#0f172a">
+    Aqlni <tspan fill="url(#brand)">ishga sol</tspan>,
+  </text>
+  <text x="600" y="295" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="60" font-weight="900" fill="#0f172a">
+    dunyoni zabt et!
+  </text>
+
+  <!-- Subtitle -->
+  <text x="600" y="342" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="600" fill="#475569">
+    ⚡ Bilimlarni musobaqa, testlar va reyting orqali egalla!
+  </text>
+
+  <!-- CTA Buttons -->
+  <g transform="translate(375, 372)">
+    <rect x="0" y="0" width="220" height="52" rx="26" fill="url(#btn)" filter="url(#shadow)"/>
+    <text x="110" y="32" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="700" fill="#ffffff">⚡ Boshlash — Bepul</text>
+
+    <rect x="236" y="0" width="210" height="52" rx="26" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="341" y="32" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#1e293b">Testlarni ko'rish</text>
+  </g>
+
+  <!-- 4 Stat Cards -->
+  <g transform="translate(120, 465)">
+    <!-- Card 1 -->
+    <g transform="translate(0, 0)">
+      <rect width="222" height="135" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+      <rect x="91" y="18" width="40" height="40" rx="12" fill="#dbeafe"/>
+      <circle cx="111" cy="38" r="9" fill="#2563eb"/>
+      <text x="111" y="90" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="900" fill="#0f172a">O'quvchilar</text>
+      <text x="111" y="114" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" fill="#64748b">REYTING VA XP TIZIMI</text>
+    </g>
+
+    <!-- Card 2 -->
+    <g transform="translate(246, 0)">
+      <rect width="222" height="135" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+      <rect x="91" y="18" width="40" height="40" rx="12" fill="#f3e8ff"/>
+      <circle cx="111" cy="38" r="9" fill="#9333ea"/>
+      <text x="111" y="90" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="900" fill="#0f172a">Fanlar</text>
+      <text x="111" y="114" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" fill="#64748b">KO'P YO'NALISHLI BAZA</text>
+    </g>
+
+    <!-- Card 3 -->
+    <g transform="translate(492, 0)">
+      <rect width="222" height="135" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+      <rect x="91" y="18" width="40" height="40" rx="12" fill="#fef3c7"/>
+      <circle cx="111" cy="38" r="9" fill="#d97706"/>
+      <text x="111" y="90" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="900" fill="#0f172a">Testlar</text>
+      <text x="111" y="114" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" fill="#64748b">INTERAKTIV MASHQLAR</text>
+    </g>
+
+    <!-- Card 4 -->
+    <g transform="translate(738, 0)">
+      <rect width="222" height="135" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+      <rect x="91" y="18" width="40" height="40" rx="12" fill="#d1fae5"/>
+      <circle cx="111" cy="38" r="9" fill="#059669"/>
+      <text x="111" y="90" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="900" fill="#0f172a">Natijalar</text>
+      <text x="111" y="114" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" fill="#64748b">SERTIFIKAT VA TAHLIL</text>
+    </g>
+  </g>
+</svg>

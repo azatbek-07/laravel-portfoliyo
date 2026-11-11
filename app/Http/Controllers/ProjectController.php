@@ -11,7 +11,13 @@ class ProjectController extends Controller
     {
         $statusFilter = $request->query('status');
 
-        $query = Project::latest();
+        $counts = [
+            'all' => Project::count(),
+            'completed' => Project::where('status', 'Yakunlangan')->count(),
+            'in_progress' => Project::where('status', 'Ishlab chiqilmoqda')->count(),
+        ];
+
+        $query = Project::orderBy('id', 'asc');
 
         if ($statusFilter === 'completed') {
             $query->where('status', 'Yakunlangan');
@@ -19,8 +25,8 @@ class ProjectController extends Controller
             $query->where('status', 'Ishlab chiqilmoqda');
         }
 
-        $projects = $query->paginate(4)->withQueryString();
+        $projects = $query->paginate(6)->withQueryString();
 
-        return view('projects.index', compact('projects', 'statusFilter'));
+        return view('projects.index', compact('projects', 'statusFilter', 'counts'));
     }
 }

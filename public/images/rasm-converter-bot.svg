@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="darkbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="cyanblue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="btnGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#darkbg)"/>
+  <circle cx="600" cy="80" r="260" fill="#06b6d4" opacity="0.12"/>
+  <circle cx="980" cy="540" r="220" fill="#2563eb" opacity="0.12"/>
+
+  <!-- Header -->
+  <g transform="translate(80, 36)">
+    <rect x="0" y="0" width="46" height="46" rx="14" fill="url(#btnGrad)"/>
+    <text x="23" y="29" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="800" fill="#ffffff">PDF</text>
+    <text x="60" y="22" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700" fill="#ffffff">Rasm Converter</text>
+    <rect x="220" y="6" width="44" height="20" rx="10" fill="#083344" stroke="#06b6d4" stroke-width="1"/>
+    <text x="242" y="20" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700" fill="#67e8f9">v2.0</text>
+    <text x="60" y="42" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#94a3b8">@word_pdf7_bot</text>
+
+    <rect x="850" y="4" width="190" height="40" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="945" y="29" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="#f8fafc">Telegram orqali ochish ↗</text>
+  </g>
+
+  <!-- Status Badge -->
+  <g transform="translate(445, 118)">
+    <rect width="310" height="34" rx="17" fill="#064e3b" opacity="0.5" stroke="#10b981" stroke-width="1"/>
+    <circle cx="22" cy="17" r="5" fill="#34d399"/>
+    <text x="165" y="22" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#6ee7b7">Yangilangan 2.0 versiya ishga tushdi!</text>
+  </g>
+
+  <!-- Hero Title -->
+  <text x="600" y="215" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="52" font-weight="800" fill="#ffffff">
+    Rasmlarni soniyalar ichida
+  </text>
+  <text x="600" y="280" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="52" font-weight="800" fill="url(#cyanblue)">
+    PDF va Word faylga aylantiring
+  </text>
+
+  <!-- Subtitle -->
+  <text x="600" y="325" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="18" fill="#94a3b8">
+    Telegram ichida 30 tagacha rasmni bitta PDF yoki DOCX hujjatga birlashtiring va hajmini kichraytiring
+  </text>
+
+  <!-- CTA Buttons -->
+  <g transform="translate(380, 355)">
+    <rect x="0" y="0" width="250" height="54" rx="16" fill="url(#btnGrad)"/>
+    <text x="125" y="33" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="700" fill="#ffffff">✈ Botni ishga tushirish</text>
+
+    <rect x="268" y="0" width="170" height="54" rx="16" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
+    <text x="353" y="33" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#cbd5e1">Muallif haqida</text>
+  </g>
+
+  <!-- 3 Feature Cards -->
+  <g transform="translate(80, 445)">
+    <!-- Card 1 -->
+    <g transform="translate(0, 0)">
+      <rect width="330" height="170" rx="20" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+      <rect x="24" y="24" width="46" height="46" rx="12" fill="#083344" stroke="#06b6d4" stroke-width="1"/>
+      <text x="47" y="54" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="22">📄</text>
+      <text x="24" y="102" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700" fill="#ffffff">Rasm → PDF (A4)</text>
+      <text x="24" y="130" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#94a3b8">JPG, PNG va WEBP formatdagi 30 tagacha</text>
+      <text x="24" y="150" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#94a3b8">rasmni A4 PDF hujjatga birlashtiradi.</text>
+    </g>
+
+    <!-- Card 2 -->
+    <g transform="translate(355, 0)">
+      <rect width="330" height="170" rx="20" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+      <rect x="24" y="24" width="46" height="46" rx="12" fill="#172554" stroke="#3b82f6" stroke-width="1"/>
+      <text x="47" y="54" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="22">📝</text>
+      <text x="24" y="102" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700" fill="#ffffff">Rasm → Word (DOCX)</text>
+      <text x="24" y="130" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#94a3b8">Rasmlarni Microsoft Word (.docx)</text>
+      <text x="24" y="150" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#94a3b8">sahifalariga chiroyli joylashtiradi.</text>
+    </g>
+
+    <!-- Card 3 -->
+    <g transform="translate(710, 0)">
+      <rect width="330" height="170" rx="20" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+      <rect x="24" y="24" width="46" height="46" rx="12" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+      <text x="47" y="54" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="22">⚡</text>
+      <text x="24" y="102" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700" fill="#ffffff">Kichraytirilgan PDF</text>
+      <text x="24" y="130" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#94a3b8">Sifatni saqlagan holda hajmi 3–5 barobar</text>
+      <text x="24" y="150" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#94a3b8">kichik PDF fayl tayyorlab beradi.</text>
+    </g>
+  </g>
+</svg>
