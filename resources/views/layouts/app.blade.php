@@ -250,6 +250,11 @@
                         {{ __('nav.projects') }}
                     </a>
 
+                    <a href="{{ route('services') }}"
+                        class="nav-link {{ request()->routeIs('services') ? 'active text-cyan' : 'text-gray-600' }} text-sm font-medium">
+                        {{ __('nav.services') }}
+                    </a>
+
                     {{-- LANGUAGE DROPDOWN (DESKTOP) --}}
                     @php
                         $activeLang = $locales[$currentLocale] ?? $locales['uz'];
@@ -343,6 +348,11 @@
                     {{ __('nav.projects') }}
                 </a>
 
+                <a href="{{ route('services') }}" class="block py-3 px-3 rounded-lg text-sm font-medium
+                {{ request()->routeIs('services') ? 'bg-cyan/10 text-cyan' : 'text-gray-600' }}">
+                    {{ __('nav.services') }}
+                </a>
+
                 <a href="{{ route('contact') }}" class="block py-3 px-3 rounded-lg text-sm font-semibold
                 {{ request()->routeIs('contact') ? 'bg-cyan/10 text-cyan' : 'text-cyan' }}">
                     {{ __('nav.contact') }}
@@ -388,6 +398,9 @@
                                 class="footer-link-cyan text-sm text-gray-400 hover:text-cyan transition-colors">{{ __('footer.about') }}</a></li>
                         <li><a href="{{ route('projects') }}"
                                 class="footer-link-cyan text-sm text-gray-400 hover:text-cyan transition-colors">{{ __('footer.my_projects') }}</a>
+                        </li>
+                        <li><a href="{{ route('services') }}"
+                                class="footer-link-cyan text-sm text-gray-400 hover:text-cyan transition-colors">{{ __('nav.services') }}</a>
                         </li>
                         <li><a href="{{ route('contact') }}"
                                 class="footer-link-cyan text-sm text-gray-400 hover:text-cyan transition-colors">{{ __('footer.contact') }}</a>
