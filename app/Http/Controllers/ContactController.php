@@ -21,22 +21,38 @@ class ContactController extends Controller
             'message' => 'required|string',
         ]);
 
-        $text = "📩 YANGI XABAR\n\n"
-            . "👤 Ism: {$request->name}\n"
-            . "📧 Email: {$request->email}\n"
-            . "📌 Mavzu: {$request->subject}\n\n"
-            . "💬 Xabar:\n{$request->message}";
+        $name = htmlspecialchars($request->name, ENT_QUOTES, 'UTF-8');
+        $email = htmlspecialchars($request->email, ENT_QUOTES, 'UTF-8');
+        $subject = htmlspecialchars($request->subject, ENT_QUOTES, 'UTF-8');
+        $message = htmlspecialchars($request->message, ENT_QUOTES, 'UTF-8');
+        $time = now()->timezone('Asia/Tashkent')->format('d.m.Y | H:i');
+        $locale = strtoupper(app()->getLocale());
 
-        
-        $response = Http::post(
-    'https://api.telegram.org/bot' . config('services.telegram.bot_token') . '/sendMessage',
-    [
-        'chat_id' => config('services.telegram.chat_id'),
-        'text' => $text,
-    ]
-);
+        $text = "🔔 <b>YANGI MUROJAAT — AZATBEK.UZ</b>\n"
+            . "━━━━━━━━━━━━━━━━━━\n\n"
+            . "👤 <b>Ism:</b> {$name}\n"
+            . "📧 <b>Email:</b> <code>{$email}</code>\n"
+            . "📌 <b>Mavzu:</b> {$subject}\n"
+            . "🌐 <b>Sayt tili:</b> {$locale}\n"
+            . "🕒 <b>Vaqt:</b> {$time}\n\n"
+            . "💬 <b>Xabar matni:</b>\n"
+            . "<blockquote>{$message}</blockquote>\n\n"
+            . "━━━━━━━━━━━━━━━━━━\n"
+            . "🔗 <a href=\"https://azatbek.uz/contact\">azatbek.uz</a>";
+
+        Http::post(
+            'https://api.telegram.org/bot' . config('services.telegram.bot_token') . '/sendMessage',
+            [
+                'chat_id' => config('services.telegram.chat_id'),
+                'text' => $text,
+                'parse_mode' => 'HTML',
+                'disable_web_page_preview' => true,
+            ]
+        );
+
         return back()->with(
             'success',
             __('contact.success')
         );
-    }}
+    }
+}
