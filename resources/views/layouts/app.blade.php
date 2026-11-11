@@ -5,7 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@yield('title', __('meta.title'))</title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}?v=2" />
+    <link rel="icon" type="image/png" sizes="64x64" href="{{ asset('favicon.png') }}?v=2" />
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}?v=2" />
     @if (file_exists(public_path('hot')) || file_exists(public_path('build/manifest.json')))
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @endif
