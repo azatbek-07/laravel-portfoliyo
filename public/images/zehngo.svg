@@ -30,7 +30,7 @@
     <!-- Brain/Spark icon -->
     <circle cx="22" cy="22" r="10" fill="none" stroke="#ffffff" stroke-width="2.5"/>
     <path d="M18 22h8M22 18v8" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
-    <text x="56" y="31" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="900" fill="#0f172a">Zehn<tspan fill="#2563eb">Go</tspan></text>
+    <text x="56" y="31" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="900" fill="#0f172a">Zehn<tspan fill="#2563eb">Noir</tspan></text>
 
     <!-- Right nav buttons -->
     <rect x="820" y="4" width="95" height="38" rx="19" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
