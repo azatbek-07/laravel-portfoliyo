@@ -18,7 +18,7 @@ class ProjectSeeder extends Seeder
             [
                 'title' => "ZehnNoir — Intellektual Detektiv va Tergov Platformasi",
                 'description' => "Intellektual tergov, video-keyslar va mantiqiy tahlilga asoslangan zamonaviy detektiv platforma. Interaktiv tergov delolari, reyting (leaderboard), XP ballar tizimi hamda Admin, Tergovchi va Foydalanuvchi panellari mavjud.",
-                'image' => 'zehngo.svg',
+                'image' => 'zehnnoir.svg',
                 'icon' => 'brain',
                 'gradient' => 'from-blue-600 to-indigo-600',
                 'status' => 'Yakunlangan',
