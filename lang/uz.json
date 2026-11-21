@@ -84,8 +84,8 @@
     "projects.future_title": "Yangi loyiha qo'shish",
     "projects.future_desc": "Keyingi loyihangiz shu yerda bo'ladi. Yangi g'oyalar va texnologiyalar bilan yanada kuchli portfolio.",
 
-    "projects.item.1.title": "ZehnNoir — Gamified Ta'lim Platformasi",
-    "projects.item.1.description": "O'quvchilar va o'qituvchilar uchun gamifikatsiyalashgan zamonaviy ta'lim va onlayn test platformasi. Fanlar bo'yicha interaktiv testlar, reyting (leaderboard), XP ballar tizimi hamda Admin, O'qituvchi va O'quvchi panellari mavjud.",
+    "projects.item.1.title": "ZehnNoir — Intellektual Detektiv va Tergov Platformasi",
+    "projects.item.1.description": "Intellektual tergov, video-keyslar va mantiqiy tahlilga asoslangan zamonaviy detektiv platforma. Interaktiv tergov delolari, reyting (leaderboard), XP ballar tizimi hamda Admin, Tergovchi va Foydalanuvchi panellari mavjud.",
     "projects.item.2.title": "Rasm Converter Bot v2.0",
     "projects.item.2.description": "Rasmlarni soniyalar ichida A4 formatdagi PDF va Microsoft Word (DOCX) hujjatga aylantiruvchi hamda sifatni saqlagan holda PDF hajmini 3–5 barobar kichraytiruvchi Telegram bot (@word_pdf7_bot) va monitoring web-platformasi.",
     "projects.item.3.title": "FreelanceHub",

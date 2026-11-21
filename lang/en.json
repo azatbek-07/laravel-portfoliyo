@@ -84,8 +84,8 @@
     "projects.future_title": "Upcoming Project",
     "projects.future_desc": "My next project will be showcased here — building a stronger portfolio with new ideas and technologies.",
 
-    "projects.item.1.title": "ZehnNoir — Gamified Learning Platform",
-    "projects.item.1.description": "A modern gamified online education and testing platform for students and teachers. Features interactive subject tests, live leaderboards, XP points, and dedicated Admin, Teacher, and Student dashboards.",
+    "projects.item.1.title": "ZehnNoir — Intellectual Detective & Investigation Platform",
+    "projects.item.1.description": "A modern detective platform built around intellectual investigations, video cases, and logical analysis. Features interactive case files, live leaderboards, XP points, and dedicated management dashboards.",
     "projects.item.2.title": "Rasm Converter Bot v2.0",
     "projects.item.2.description": "A Telegram bot (@word_pdf7_bot) and monitoring web platform that converts up to 30 images into A4 PDF and Microsoft Word (DOCX) documents in seconds, with smart 3–5x PDF compression.",
     "projects.item.3.title": "FreelanceHub",

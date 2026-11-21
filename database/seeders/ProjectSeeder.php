@@ -16,8 +16,8 @@ class ProjectSeeder extends Seeder
 
         $projects = [
             [
-                'title' => "ZehnNoir — Gamified Ta'lim Platformasi",
-                'description' => "O'quvchilar va o'qituvchilar uchun gamifikatsiyalashgan zamonaviy ta'lim va onlayn test platformasi. Fanlar bo'yicha interaktiv testlar, reyting (leaderboard), XP ballar tizimi hamda Admin, O'qituvchi va O'quvchi panellari mavjud.",
+                'title' => "ZehnNoir — Intellektual Detektiv va Tergov Platformasi",
+                'description' => "Intellektual tergov, video-keyslar va mantiqiy tahlilga asoslangan zamonaviy detektiv platforma. Interaktiv tergov delolari, reyting (leaderboard), XP ballar tizimi hamda Admin, Tergovchi va Foydalanuvchi panellari mavjud.",
                 'image' => 'zehngo.svg',
                 'icon' => 'brain',
                 'gradient' => 'from-blue-600 to-indigo-600',
