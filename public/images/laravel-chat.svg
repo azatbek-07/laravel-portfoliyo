@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="1020" cy="120" r="240" fill="#6366f1" opacity="0.12"/>
+  <circle cx="180" cy="560" r="220" fill="#06b6d4" opacity="0.12"/>
+
+  <!-- Left Sidebar Mockup -->
+  <rect x="70" y="60" width="310" height="555" rx="24" fill="#111827" stroke="#1e293b" stroke-width="2"/>
+  <text x="102" y="112" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="800" fill="#f8fafc">Laravel<tspan fill="#38bdf8">Chat</tspan></text>
+  <circle cx="340" cy="104" r="6" fill="#10b981"/>
+
+  <rect x="96" y="140" width="258" height="42" rx="12" fill="#1e293b"/>
+  <text x="116" y="166" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#94a3b8">Qidirish...</text>
+
+  <!-- Chat List Items -->
+  <rect x="96" y="204" width="258" height="72" rx="16" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+  <circle cx="132" cy="240" r="20" fill="#6366f1"/>
+  <text x="164" y="234" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="700" fill="#f8fafc">Azatbek</text>
+  <text x="164" y="256" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#38bdf8">Online • yozmoqda...</text>
+
+  <rect x="96" y="292" width="258" height="72" rx="16" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+  <circle cx="132" cy="328" r="20" fill="#0ea5e9"/>
+  <text x="164" y="322" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="700" fill="#e2e8f0">Backend Team</text>
+  <text x="164" y="344" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#64748b">Yangi xabar keldi</text>
+
+  <rect x="96" y="380" width="258" height="72" rx="16" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+  <circle cx="132" cy="416" r="20" fill="#10b981"/>
+  <text x="164" y="410" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="700" fill="#e2e8f0">Sardor</text>
+  <text x="164" y="432" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#64748b">Rahmat, zo'r chiqibdi!</text>
+
+  <!-- Right Chat Window -->
+  <rect x="406" y="60" width="724" height="555" rx="24" fill="#111827" stroke="#1e293b" stroke-width="2"/>
+  <line x1="406" y1="132" x2="1130" y2="132" stroke="#1e293b" stroke-width="2"/>
+  <circle cx="452" cy="96" r="20" fill="#6366f1"/>
+  <text x="486" y="92" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="700" fill="#f8fafc">Real-Time Messenger</text>
+  <text x="486" y="112" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#10b981">● Faol ulanish • Laravel + MySQL</text>
+
+  <!-- Incoming Bubble -->
+  <rect x="442" y="168" width="420" height="76" rx="20" fill="#1e293b"/>
+  <text x="466" y="200" font-family="Inter, system-ui, sans-serif" font-size="15" fill="#f1f5f9">Salom! Real-time chat tizimi tayyor bo'ldimi?</text>
+  <text x="466" y="226" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#94a3b8">14:20</text>
+
+  <!-- Outgoing Bubble -->
+  <rect x="650" y="268" width="444" height="82" rx="20" fill="url(#accent)"/>
+  <text x="674" y="302" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Ha! Xabarlar soniyalar ichida yetib boradi ⚡</text>
+  <text x="674" y="328" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#e0f2fe">14:21 ✓✓</text>
+
+  <!-- Incoming Bubble 2 -->
+  <rect x="442" y="376" width="380" height="76" rx="20" fill="#1e293b"/>
+  <text x="466" y="408" font-family="Inter, system-ui, sans-serif" font-size="15" fill="#f1f5f9">Ajoyib! Interfeys ham juda tez ishlayapti 🔥</text>
+  <text x="466" y="434" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#94a3b8">14:22</text>
+
+  <!-- Input Bar -->
+  <rect x="442" y="532" width="548" height="52" rx="16" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+  <text x="468" y="563" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#64748b">Xabar yozing...</text>
+  <rect x="1006" y="532" width="90" height="52" rx="16" fill="url(#accent)"/>
+  <text x="1051" y="563" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Yuborish</text>
+</svg>

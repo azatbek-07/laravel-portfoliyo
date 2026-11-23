@@ -98,8 +98,8 @@
     "projects.item.6.description": "A modern fitness platform designed to support a healthy lifestyle with professional trainers, workout programs, and personalized services.",
     "projects.item.7.title": "SamSU Dining Hall",
     "projects.item.7.description": "A modern website providing complete information about the Samarkand State University dining hall, including menu, pricing, opening hours, and contact details.",
-    "projects.item.8.title": "Register & Login System",
-    "projects.item.8.description": "A complete authentication system for user registration and sign-in, featuring validation, security checks, and a clean modern UI.",
+    "projects.item.8.title": "Laravel Chat — Real-Time Messenger",
+    "projects.item.8.description": "A modern Laravel messaging platform for instant user-to-user communication. Features private chats, user search, secure authentication, and a clean responsive UI.",
 
     "services.badge": "Services & Pricing",
     "services.title": "Services & Plans",

@@ -98,8 +98,8 @@
     "projects.item.6.description": "Sog'lom turmush tarzini qo'llab-quvvatlash uchun yaratilgan zamonaviy fitness platformasi. Professional trenerlar, mashg'ulotlar va foydali xizmatlar orqali foydalanuvchilarga o'z maqsadlariga erishishda yordam beradi.",
     "projects.item.7.title": "SamDU Oshxona",
     "projects.item.7.description": "Samarqand Davlat Universiteti oshxonasi haqida to'liq ma'lumot beruvchi zamonaviy web-sayt. Menyu, narxlar, ish vaqti va kontakt ma'lumotlari mavjud.",
-    "projects.item.8.title": "Register & Login Tizimi",
-    "projects.item.8.description": "Foydalanuvchilarni ro'yxatdan o'tkazish va tizimga kirish uchun to'liq autentifikatsiya tizimi. Validatsiya, xavfsizlik tekshiruvlari va zamonaviy UI bilan.",
+    "projects.item.8.title": "Laravel Chat — Real-Time Messenger",
+    "projects.item.8.description": "Foydalanuvchilar o'rtasida tezkor xabar almashish uchun zamonaviy Laravel chat platformasi. Shaxsiy yozishmalar, foydalanuvchilarni qidirish, xavfsiz autentifikatsiya va qulay interfeys bilan.",
 
     "services.badge": "Xizmatlar va Narxlar",
     "services.title": "Xizmatlar va Tariflar",
